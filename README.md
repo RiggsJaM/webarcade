@@ -3,3 +3,9 @@
 
 
 ![Alt Text](pics/Rock_Bottom.png)
+
+
+# Restaurant Bill Splitter
+
+
+---
