@@ -13,7 +13,10 @@ Once you get Rider installed, you will want to open rider, and click on:
 From here you will want to click on Android 12.0 (S)
 
 
-*** Please Note that we CANNOT build for iOS unless we have a Mac. I'll see what I can do with one of the Macs in LF105. Until then we will have to build the Android SDK.
+*** Please Note that we CANNOT build the emulator for iOS unless we have a Mac. I'll see what I can do with one of the Macs in LF105. Until then we will have to build the Android SDK.
+
+
+** You should be able to connect your iPhone to your Windows computer though, to deploy directly.
 
 
 Once the rom for the Android Emulator is finished installing, you will want to install Microsoft's version of OpenJDK. It is a Java SDK that you can install really easily. Go to the following link: 
