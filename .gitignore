@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/androidstudio,intellij+iml,intellij+all,java,flutter,dart,windows,macos,xcode
-# Edit at https://www.toptal.com/developers/gitignore?templates=androidstudio,intellij+iml,intellij+all,java,flutter,dart,windows,macos,xcode
+# Created by https://www.toptal.com/developers/gitignore/api/windows,macos,jetbrains,androidstudio,dart,flutter,java,gradle
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,jetbrains,androidstudio,dart,flutter,java,gradle
 
 ### Dart ###
 # See https://www.dartlang.org/guides/libraries/private-files
@@ -41,7 +41,6 @@ doc/api/
 .pub-cache/
 .pub/
 coverage/
-lib/generated_plugin_registrant.dart
 # For library packages, don’t commit the pubspec.lock file.
 # Regenerating the pubspec.lock file lets you test your package against the latest compatible versions of its dependencies.
 # See https://dart.dev/guides/libraries/private-files#pubspeclock
@@ -93,7 +92,33 @@ lib/generated_plugin_registrant.dart
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
-### Intellij+all ###
+### Java ###
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
+
+### JetBrains ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
@@ -172,97 +197,39 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
-### Intellij+all Patch ###
-# Ignore everything but code style settings and run configurations
-# that are supposed to be shared within teams.
+### JetBrains Patch ###
+# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
-.idea/*
-
-!.idea/codeStyles
-!.idea/runConfigurations
-
-### Intellij+iml ###
-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
-# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
-
-# User-specific stuff
-
-# AWS User-specific
-
-# Generated files
-
-# Sensitive or high-churn files
-
-# Gradle
-
-# Gradle and Maven with auto-import
-# When using Gradle or Maven with auto-import, you should exclude module files,
-# since they will be recreated, and may cause churn.  Uncomment if using
-# auto-import.
-# .idea/artifacts
-# .idea/compiler.xml
-# .idea/jarRepositories.xml
-# .idea/modules.xml
-# .idea/*.iml
-# .idea/modules
 # *.iml
+# modules.xml
+# .idea/misc.xml
 # *.ipr
 
-# CMake
+# Sonarlint plugin
+# https://plugins.jetbrains.com/plugin/7973-sonarlint
+.idea/**/sonarlint/
 
-# Mongo Explorer plugin
+# SonarQube Plugin
+# https://plugins.jetbrains.com/plugin/7238-sonarqube-community-plugin
+.idea/**/sonarIssues.xml
 
-# File-based project format
+# Markdown Navigator plugin
+# https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced
+.idea/**/markdown-navigator.xml
+.idea/**/markdown-navigator-enh.xml
+.idea/**/markdown-navigator/
 
-# IntelliJ
+# Cache file creation bug
+# See https://youtrack.jetbrains.com/issue/JBR-2257
+.idea/$CACHE_FILE$
 
-# mpeltonen/sbt-idea plugin
+# CodeStream plugin
+# https://plugins.jetbrains.com/plugin/12206-codestream
+.idea/codestream.xml
 
-# JIRA plugin
-
-# Cursive Clojure plugin
-
-# SonarLint plugin
-
-# Crashlytics plugin (for Android Studio and IntelliJ)
-
-# Editor-based Rest Client
-
-# Android studio 3.1+ serialized cache file
-
-### Intellij+iml Patch ###
-# Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
-
-*.iml
-modules.xml
-.idea/misc.xml
-*.ipr
-
-### Java ###
-# Compiled class file
-*.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# Azure Toolkit for IntelliJ plugin
+# https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
+.idea/**/azureSettings.xml
 
 ### macOS ###
 # General
@@ -323,21 +290,32 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-### Xcode ###
-## User settings
-xcuserdata/
+### Gradle ###
+.gradle
+**/build/
+!src/**/build/
 
-## Xcode 8 and earlier
-*.xcscmblueprint
-*.xccheckout
+# Ignore Gradle GUI config
+gradle-app.setting
 
-### Xcode Patch ###
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcworkspace/contents.xcworkspacedata
-/*.gcno
-**/xcshareddata/WorkspaceSettings.xcsettings
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Avoid ignore Gradle wrappper properties
+!gradle-wrapper.properties
+
+# Cache of project
+.gradletasknamecache
+
+# Eclipse Gradle plugin generated files
+# Eclipse Core
+.project
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+### Gradle Patch ###
+# Java heap dump
+*.hprof
 
 ### AndroidStudio ###
 # Covers files to be ignored for android development using Android Studio.
@@ -357,7 +335,6 @@ bin/
 gen/
 
 # Gradle files
-.gradle
 .gradle/
 
 # Signing files
@@ -379,6 +356,7 @@ proguard/
 /*/*/production
 captures/
 .navigation/
+*.ipr
 *~
 *.swp
 
@@ -399,6 +377,7 @@ gen-external-apklibs
 obj/
 
 # IntelliJ IDEA
+*.iml
 /out/
 
 # User-specific configurations
@@ -411,6 +390,7 @@ obj/
 .idea/compiler.xml
 .idea/copyright/profiles_settings.xml
 .idea/encodings.xml
+.idea/misc.xml
 .idea/modules.xml
 .idea/scopes/scope_settings.xml
 .idea/dictionaries
@@ -427,8 +407,6 @@ obj/
 .idea/navEditor.xml
 
 # Legacy Eclipse project files
-.classpath
-.project
 .cproject
 .settings/
 
@@ -453,5 +431,4 @@ obj/
 
 !/gradle/wrapper/gradle-wrapper.jar
 
-# End of https://www.toptal.com/developers/gitignore/api/androidstudio,intellij+iml,intellij+all,java,flutter,dart,windows,macos,xcode
-
+# End of https://www.toptal.com/developers/gitignore/api/windows,macos,jetbrains,androidstudio,dart,flutter,java,gradle
