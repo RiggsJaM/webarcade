@@ -2,7 +2,7 @@
 
 
 
-![Alt Text](pics/Rock_Bottom.png)
+![Alt Text](src/pics/Rock_Bottom.png)
 
 
 # Restaurant Bill Splitter
