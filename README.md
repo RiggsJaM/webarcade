@@ -4,9 +4,9 @@
 
 ![Alt Text](src/pics/Rock_Bottom.png)
 
+# Language
+    This project is written and tested in dart using the flutter frame work
 
-# Restaurant Bill Splitter
+# To be announced
 
-
-Test
 ---
