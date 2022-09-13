@@ -62,8 +62,6 @@ This project is written and tested in Dart using the Flutter framework.
 
 &nbsp;  
 ## Authors
-Jacob Riggs, Elizabeth Mittle, John Hatton, and Nicholas Gathof
+Jacob Riggs, Elizabeth Mittel, John Hatton, and Nicholas Gathof
 
-&nbsp; 
-## Credits?
 
