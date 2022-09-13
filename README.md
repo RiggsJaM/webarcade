@@ -1,18 +1,15 @@
 # Project Name Go Here
 
 ## Description
----
 
 &nbsp; 
 ## Requirements
----
 [Flutter](https://docs.flutter.dev/get-started/install)
 
 [Google Chrome](https://www.google.com/chrome/) or [Microsoft Edge](https://www.microsoft.com/en-us/edge)
 
 &nbsp; 
 ## Flutter Setup
----
 [Flutter](https://docs.flutter.dev/get-started/install)
 
 The only required steps to build the project are to download the Flutter SDK and set the path for Flutter.
@@ -44,7 +41,6 @@ Setting the path on macOS will require you to do these steps:
  
 &nbsp; 
 ## Building The Project
----
 Once you have installed Flutter and set the PATH on your device, you will need to clone this repository in a terminal.
 
     $ git clone https://github.com/IUS-CS/c346-34515-fa22-project-rockbottom.git
@@ -59,15 +55,13 @@ Now run one of the two commands below to build and run the project.
 
 &nbsp; 
 ## Language
----
 This project is written and tested in Dart using the Flutter framework.
 
 &nbsp;  
 ## Authors
----
 
 &nbsp; 
 ## Credits?
----
+
 
 
