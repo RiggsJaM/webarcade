@@ -8,6 +8,7 @@
 
 [Google Chrome](https://www.google.com/chrome/) or [Microsoft Edge](https://www.microsoft.com/en-us/edge)
 
+
 &nbsp; 
 ## Flutter Setup
 [Flutter](https://docs.flutter.dev/get-started/install)
@@ -62,6 +63,4 @@ This project is written and tested in Dart using the Flutter framework.
 
 &nbsp; 
 ## Credits?
-
-
 
