@@ -1,6 +1,8 @@
 # Project Name Go Here
 
 ## Description
+This project is a web app that plays and displays different types of classic game such as Solitaire, Hangman, Tic-Tac-Toe etc. Even though this project 
+is a web app, it can only be opened in Chrome and Edge. You CANNOT open this in safari or any other browser. 
 
 &nbsp; 
 ## Requirements
@@ -60,7 +62,6 @@ This project is written and tested in Dart using the Flutter framework.
 
 &nbsp;  
 ## Authors
+Jacob Riggs, Elizabeth Mittel, John Hatton, and Nicholas Gathof
 
-&nbsp; 
-## Credits?
 
