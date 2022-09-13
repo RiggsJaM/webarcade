@@ -5,7 +5,6 @@
 
 &nbsp; 
 ## Requirements
----
 [Flutter](https://docs.flutter.dev/get-started/install)
 
 [Google Chrome](https://www.google.com/chrome/) or [Microsoft Edge](https://www.microsoft.com/en-us/edge)
