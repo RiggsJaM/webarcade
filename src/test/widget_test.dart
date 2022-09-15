@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:bill_splitter/main.dart';
+import 'package:prototype/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
@@ -27,4 +27,42 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+  test('Counter value should be incremented', () {
+    final counter = Counter();
+
+    counter.increment();
+
+    expect(counter.value, 1);
+  });
+
+  testWidgets('MyHomePage has a title', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+
+    final titleFinder = find.text('Prototype Home Page');
+
+    expect(titleFinder, findsOneWidget);
+  });
+
+  test('Counter value increments then decrements', ()  {
+    final counter = Counter();
+
+    counter.increment();
+    counter.decrement();
+
+    expect(counter.value, 0);
+  });
+
+  test('Counter value increments then resets', ()  {
+    final counter = Counter();
+
+    counter.increment();
+    for (int i = 0; i < 50; i++) {
+      counter.increment();
+    }
+    expect(counter.value, 51);
+    counter.value = 0;
+    expect(counter.value, 0);
+  });
+
 }

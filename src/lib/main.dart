@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'RockBottom Prototype',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -22,9 +23,10 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
+        scaffoldBackgroundColor: Colors.blueGrey
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Prototype Home Page'),
     );
   }
 }
@@ -61,6 +63,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  bool pressed = false;
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -74,6 +78,15 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+      ),
+      drawer: Drawer(
+        child: ListView (
+          children: const [
+            ListTile (
+              title: Text("Nick Wanted This"),
+           ),
+          ],
+        ),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -97,10 +110,44 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text(
               'You have pushed the button this many times:',
+                style: TextStyle( fontSize: 20)
             ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      pressed = !pressed;
+                    });
+                  },
+                  child: pressed ? const Text('Press That Guy Down There', style: TextStyle( fontSize: 20)) : const Text("I Am A Button", style: TextStyle( fontSize: 20)),
+              ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Visibility(
+                    visible: pressed,
+                    child: const Text("Yeah, The Teal One Down There", style: TextStyle( fontSize: 20)),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: ElevatedButton(
+                    child: const Text("Beeg Number Go Bye Bye", style: TextStyle( fontSize: 20)),
+                    onPressed: () {
+                      setState(() {
+                        _counter = 0;
+                      });
+                    },
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -108,8 +155,24 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
+        backgroundColor: const Color(0XFF4DB6AC),
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+
+// Test Class
+class Counter {
+  int value = 0;
+
+  void increment() {
+    value++;
+  }
+
+  void decrement() {
+    value--;
+  }
+}
+
