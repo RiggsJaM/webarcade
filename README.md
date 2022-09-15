@@ -1,4 +1,4 @@
-# Project Name Go Here
+# Classic Web Arcade
 
 ## Description
 This project is a web app that plays and displays different types of classic game such as Solitaire, Hangman, Tic-Tac-Toe etc. Even though this project 
