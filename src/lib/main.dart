@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prototype/hangman.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,10 +24,10 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.deepPurple,
-        scaffoldBackgroundColor: Colors.blueGrey
+        primarySwatch: Colors.indigo,
+        scaffoldBackgroundColor: Colors.white
       ),
-      home: const MyHomePage(title: 'Prototype Home Page'),
+      home: const MyHomePage(title: 'Name goes here Home Page'),
     );
   }
 }
@@ -42,7 +43,7 @@ class MyHomePage extends StatefulWidget {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
-  
+
   final String title;
 
   @override
@@ -121,20 +122,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      pressed = !pressed;
-                    });
-                  },
-                  child: pressed ? const Text('Press That Guy Down There', style: TextStyle( fontSize: 20)) : const Text("I Am A Button", style: TextStyle( fontSize: 20)),
+                    child: const Text("HangMan", style: TextStyle(fontSize: 20)),
+                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Hangman(),))
               ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Visibility(
-                    visible: pressed,
-                    child: const Text("Yeah, The Teal One Down There", style: TextStyle( fontSize: 20)),
-                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(12.0),
