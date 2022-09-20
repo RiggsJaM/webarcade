@@ -16,7 +16,7 @@ class Hangman extends StatelessWidget {
   }
 }
 
-class GamePage extends State<MyHomePage> {
+class GamePage extends State<HomePage> {
 
   // Widget background (index) {
   //   return Container(
