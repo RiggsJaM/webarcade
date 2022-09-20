@@ -18,7 +18,7 @@ class Definition_Page extends StatelessWidget {
   }
 }
 
-class GamePage extends State<MyHomePage> {
+class GamePage extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
