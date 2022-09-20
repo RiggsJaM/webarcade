@@ -432,4 +432,6 @@ obj/
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,jetbrains,androidstudio,dart,flutter,java,gradle
-.idea/
+
+# Force delete .idea folder
+/.idea/

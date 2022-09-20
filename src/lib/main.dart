@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prototype/hangman.dart';
+import 'package:prototype/screens/hangman.dart';
 
 void main() {
   runApp(const MyApp());
@@ -152,6 +152,10 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+
+
 
 // Test Class
 class Counter {
