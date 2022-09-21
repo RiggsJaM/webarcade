@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prototype/screens/hangman.dart';
+import 'package:prototype/screens/solitaire.dart';
+import 'package:prototype/screens/tictactoe.dart';
 
 void main() {
   runApp(MyApp());
@@ -55,13 +57,13 @@ class _HomePageState extends State<HomePage> {
             ListTile (
               title: const Text("Tic-Tac-Toe"),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Hangman(),));
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => TicTacToe(),));
               },
             ),
             ListTile (
               title: const Text("Solitaire"),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Hangman(),));
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Solitaire(),));
               },
             ),
           ],
