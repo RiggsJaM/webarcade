@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Container(
               height: 50,
-              child: DrawerHeader(
+              child: const DrawerHeader(
                 child: Text("Games"),
               ),
             ),
@@ -90,9 +90,28 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+          Row(
+            children: [
+              Positioned.fill(
+               child: Align(
+                 alignment: Alignment.bottomLeft,
+                 child: SizedBox(
+                   height: screenSize.height / 6,
+                   width: screenSize.width / 3.8,
+                   child: ClipRRect(
+                     borderRadius: BorderRadius.circular(5.0),
+                     child: Image.asset(
+                       'assets/images/Solitaire.gif',
+                       fit: BoxFit.cover,
+                     ),
+                   ),
+                 ),
+               ),
+              ),
+            ],
+          ),
         ],
       ),
-
     );
   }
 }
