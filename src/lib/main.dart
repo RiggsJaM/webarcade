@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
             ListTile (
               title: const Text("*DEBUG* Definitions"),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Definition_Page(),));
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DefinitionPage(),));
               },
             ),
           ],

@@ -13,8 +13,6 @@ String word = 'flutter';
 final String url = 'https://dictionaryapi.com/api/v3/references/collegiate/json/' + word + "?key=" + mw_apiKey;
 
 
-
-
 Future<Definition> fetchDefinition(http.Client client) async {
   final response = await client.get(Uri.parse(url));
 
@@ -33,23 +31,34 @@ Future<Definition> fetchDefinition(http.Client client) async {
 
 
 
-class Definition_Page extends StatelessWidget {
-  const Definition_Page ({super.key});
+// class Definition_Page extends StatelessWidget {
+//   const Definition_Page ({super.key});
+//
+//   @override
+//   State<StatefulWidget> createState() => DefinitionPage();
+//
+//   @override
+//   Widget build(BuildContext context) {
+//
+//
+//     return Container(
+//       color: Colors.deepOrange,
+//     );
+//   }
+// }
+
+
+class DefinitionPage extends StatefulWidget {
+  DefinitionPage({super.key});
+
 
   @override
-  State<StatefulWidget> createState() => DefinitionPage();
-
-  @override
-  Widget build(BuildContext context) {
-
-
-    return Container(
-      color: Colors.deepOrange,
-    );
-  }
+  State<DefinitionPage> createState() => _DefinitionPage();
 }
 
-class DefinitionPage extends State<HomePage> {
+
+class _DefinitionPage extends State<DefinitionPage> {
+
   late Future<Definition> futureDefinition;
 
   @override
@@ -74,7 +83,7 @@ class DefinitionPage extends State<HomePage> {
             future: futureDefinition,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Text(snapshot.data!.word);
+                return Text(snapshot.data!.def);
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               }
