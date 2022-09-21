@@ -14,7 +14,7 @@ class Definition {
     return Definition(
       word: json['word'],
       ref: json['ref'],
-      def: json['def'],
+      def: json['shortdef'], // Defining Text
       functionLabel: json['fl'],
     );
   }

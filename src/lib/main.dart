@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prototype/screens/definition_page.dart';
 import 'package:prototype/screens/hangman.dart';
 import 'package:prototype/screens/solitaire.dart';
 import 'package:prototype/screens/tictactoe.dart';
@@ -64,6 +65,14 @@ class _HomePageState extends State<HomePage> {
               title: const Text("Solitaire"),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Solitaire(),));
+              },
+            ),
+
+            // TODO: Remove, once the backend has been properly tested.
+            ListTile (
+              title: const Text("*DEBUG* Definitions"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DefinitionPage(),));
               },
             ),
           ],
