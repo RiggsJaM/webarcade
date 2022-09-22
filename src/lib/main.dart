@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:prototype/screens/definition_page.dart';
-import 'package:prototype/screens/hangman.dart';
-import 'package:prototype/screens/solitaire.dart';
-import 'package:prototype/screens/tictactoe.dart';
+import 'package:RetroArcade/screens/definition_page.dart';
+import 'package:RetroArcade/screens/hangman.dart';
+import 'package:RetroArcade/screens/solitaire.dart';
+import 'package:RetroArcade/screens/tictactoe.dart';
 
 void main() {
   runApp(MyApp());

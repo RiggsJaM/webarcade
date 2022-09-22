@@ -1,18 +1,18 @@
-import 'package:prototype/models/definition.dart';
+import 'package:RetroArcade/models/definition.dart';
 
 class Word {
-  final String word;
+  final String id;
   final List<Definition> definitions;
 
-  Word({required this.word, required this.definitions});
+  Word({required this.id, required this.definitions});
 
   factory Word.fromJson(Map<String, dynamic> json) {
-    var list = json['def'] as List; // TODO: test this!!!
+    var list = json['shortdef'] as List; // TODO: test this!!!
     List<Definition> definitionsList =
     list.map((i) => Definition.fromJson(i)).toList();
 
     return Word(
-      word: json['word'], //TODO: Test This!!!
+      id: json['id'], //TODO: Test This!!!
       definitions: definitionsList,
     );
   }
