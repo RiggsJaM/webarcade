@@ -1,4 +1,4 @@
-import 'package:RetroArcade/models/definition.dart';
+import 'package:retro_arcade/models/definition.dart';
 
 class Word {
   final String id;

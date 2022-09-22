@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:RetroArcade/main.dart';
+import 'package:retro_arcade/main.dart';
 
 class Hangman extends StatelessWidget {
   const Hangman({super.key});

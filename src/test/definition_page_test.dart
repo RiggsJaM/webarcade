@@ -1,12 +1,12 @@
-import 'package:RetroArcade/models/word.dart';
+import 'package:retro_arcade/models/word.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:mockito/mockito.dart';
-import 'package:RetroArcade/main.dart';
+import 'package:retro_arcade/main.dart';
 import 'package:mockito/annotations.dart';
-import 'package:RetroArcade/models/definition.dart';
-import 'package:RetroArcade/screens/definition_page.dart';
+import 'package:retro_arcade/models/definition.dart';
+import 'package:retro_arcade/screens/definition_page.dart';
 
 // Generate a MockClient using the Mockito package.
 // Create new instances of this class in each test.

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:RetroArcade/main.dart';
+import 'package:retro_arcade/main.dart';
 
 class TicTacToe extends StatelessWidget {
   const TicTacToe({super.key});

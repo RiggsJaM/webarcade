@@ -7,8 +7,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:RetroArcade/components/counter.dart';
-import 'package:RetroArcade/main.dart';
+import 'package:retro_arcade/components/counter.dart';
+import 'package:retro_arcade/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
@@ -39,7 +39,7 @@ void main() {
   testWidgets('MyHomePage has a title', (WidgetTester tester) async {
     await tester.pumpWidget(MyApp());
 
-    final titleFinder = find.text('Prototype Home Page');
+    final titleFinder = find.text('Retro Arcade Home Page');
 
     expect(titleFinder, findsOneWidget);
   });
