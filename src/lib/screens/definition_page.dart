@@ -2,50 +2,41 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:prototype/main.dart';
-import 'package:prototype/models/definition.dart';
-import 'package:prototype/mw_key.dart';
+import 'package:RetroArcade/models/word.dart';
+import 'package:RetroArcade/mw_key.dart';
 
 import 'package:http/http.dart' as http;
 
-String word = 'flutter';
 
-final String url = 'https://dictionaryapi.com/api/v3/references/collegiate/json/' + word + "?key=" + mw_apiKey;
-
-
-Future<Definition> fetchDefinition(http.Client client) async {
+Future<Word> fetchWord(http.Client client, String myWord) async {
+  final String url = 'https://dictionaryapi.com/api/v3/references/collegiate/json/${myWord}?key=${mw_apiKey}';
   final response = await client.get(Uri.parse(url));
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
 
-    return Definition.fromJson(jsonDecode(response.body));
+    var objectFromJson = jsonDecode(response.body);
+    // objectFromJson is a LIST! We want to map it properly.
+    // The list is of each definition. Inside each definition are the fields we want.
+    // The debugPrint should help visualize this.
+    List<dynamic> list = jsonDecode(response.body);
+    for (int i=0; i < list.length; i++)
+      {
+        debugPrint('${list[i]}\n');
+      }
+    // Goes boom here... fromJson expects Map, but objectFromJson is a List...
+    var wordFromJson = Word.fromJson(objectFromJson);
+
+    debugPrint('The runtime object type of the object we\'re trying to pass is: \n${wordFromJson.runtimeType}\n');
+
+    return Word.fromJson(json.decode(response.body));
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
     throw Exception('Failed to load definition');
   }
 }
-
-
-
-
-// class Definition_Page extends StatelessWidget {
-//   const Definition_Page ({super.key});
-//
-//   @override
-//   State<StatefulWidget> createState() => DefinitionPage();
-//
-//   @override
-//   Widget build(BuildContext context) {
-//
-//
-//     return Container(
-//       color: Colors.deepOrange,
-//     );
-//   }
-// }
 
 
 class DefinitionPage extends StatefulWidget {
@@ -59,12 +50,12 @@ class DefinitionPage extends StatefulWidget {
 
 class _DefinitionPage extends State<DefinitionPage> {
 
-  late Future<Definition> futureDefinition;
+  late Future<Word> futureWord;
 
   @override
   void initState() {
     super.initState();
-    futureDefinition = fetchDefinition(http.Client()); // Added http.Client() for testing purposes
+    futureWord = fetchWord(http.Client(), "flutter"); // Added http.Client() for testing purposes
   }
 
   @override
@@ -79,11 +70,11 @@ class _DefinitionPage extends State<DefinitionPage> {
           title: const Text('Fetch Definition Demo'),
         ),
         body: Center(
-          child: FutureBuilder<Definition>(
-            future: futureDefinition,
+          child: FutureBuilder<Word>(
+            future: futureWord,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Text(snapshot.data!.def);
+                return Text(snapshot.data!.definitions.first.toString()); // Should give the first definition in the list
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               }

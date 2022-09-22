@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prototype/main.dart';
+import 'package:RetroArcade/main.dart';
 
 class Solitaire extends StatelessWidget {
   const Solitaire({super.key});

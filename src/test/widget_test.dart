@@ -7,8 +7,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:prototype/components/counter.dart';
-import 'package:prototype/main.dart';
+import 'package:RetroArcade/components/counter.dart';
+import 'package:RetroArcade/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
