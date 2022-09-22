@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:RetroArcade/models/word.dart';
-import 'package:RetroArcade/mw_key.dart';
+import 'package:retro_arcade/models/word.dart';
+import 'package:retro_arcade/mw_key.dart';
 
 import 'package:http/http.dart' as http;
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:RetroArcade/screens/definition_page.dart';
-import 'package:RetroArcade/screens/hangman.dart';
-import 'package:RetroArcade/screens/solitaire.dart';
-import 'package:RetroArcade/screens/tictactoe.dart';
+import 'package:retro_arcade/screens/definition_page.dart';
+import 'package:retro_arcade/screens/hangman.dart';
+import 'package:retro_arcade/screens/solitaire.dart';
+import 'package:retro_arcade/screens/tictactoe.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Classic Web App Arcade',
+      title: 'Retro Arcade',
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

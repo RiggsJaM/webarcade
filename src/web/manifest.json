@@ -1,11 +1,11 @@
 {
-    "name": "prototype",
-    "short_name": "prototype",
+    "name": "Retro Arcade",
+    "short_name": "Retro Arcade",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "A collection of old school games, with a couple variations.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
