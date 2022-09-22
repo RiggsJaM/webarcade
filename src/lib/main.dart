@@ -29,12 +29,33 @@ class HomePage extends StatefulWidget {
 
 
 class _HomePageState extends State<HomePage> {
+  final ScrollController _scrollController = ScrollController();
+  double _scrollPosition = 0;
+  double _opacity = 0;
+
+  _scrollListener() {
+    setState(() {
+      _scrollPosition = _scrollController.position.pixels;
+    });
+  }
+
+  @override
+  @override
+  void initState() {
+    _scrollController.addListener(_scrollListener);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
+    _opacity = _scrollPosition < screenSize.height * 0.40
+        ? _scrollPosition / (screenSize.height * 0.40)
+        : 1;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
@@ -78,39 +99,64 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: Stack(
-        children: [
-          Container( // image below the top bar
-            child: SizedBox(
-              height: screenSize.height * 0.85,
-              width: screenSize.width,
-              child: Image.asset(
-                'assets/images/wideretroarcade.jpg',
-                fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        controller: _scrollController,
+        physics: ClampingScrollPhysics(),
+        child: Column(
+          children: [
+            Container(// image below the top bar
+              child: SizedBox(
+                height: screenSize.height * 0.7,
+                width: screenSize.width,
+                child: Image.asset(
+                  'assets/images/wideretroarcade.jpg',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          Row(
-            children: [
-              Positioned.fill(
-               child: Align(
-                 alignment: Alignment.bottomLeft,
-                 child: SizedBox(
-                   height: screenSize.height / 6,
-                   width: screenSize.width / 3.8,
-                   child: ClipRRect(
-                     borderRadius: BorderRadius.circular(5.0),
-                     child: Image.asset(
-                       'assets/images/Solitaire.gif',
-                       fit: BoxFit.cover,
-                     ),
-                   ),
-                 ),
-               ),
-              ),
-            ],
-          ),
-        ],
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                  child: Row(
+                    mainAxisSize:MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children:const [
+                      Text(
+                        "Games",
+                        style:
+                        TextStyle(
+                          color: Colors.white,
+                          fontSize: 40,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: screenSize.width / 6,
+                          width: screenSize.width / 3.8,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(5.0),
+                            child: Image.asset(
+                              'assets/images/Solitaire.gif',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
