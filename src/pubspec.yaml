@@ -92,4 +92,10 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
     - assets/images/wideretroarcade.jpg
+    - assets/images/Hangman1.png
+    - assets/images/Hangman2.png
+    - assets/images/Hangman3.png
+    - assets/images/Hangman4.png
+    - assets/images/Hangman5.png
+    - assets/images/HangmanFull.png
     - assets/images/Solitaire.gif

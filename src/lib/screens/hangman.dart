@@ -1,34 +1,67 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:prototype/main.dart';
 
 class Hangman extends StatelessWidget {
   const Hangman({super.key});
-
-  @override
-  State<StatefulWidget> createState() => GamePage();
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.green,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Hangman',
+      theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: GamePage(),
     );
-    throw UnimplementedError();
   }
 }
 
-class GamePage extends State<HomePage> {
+class GamePage extends StatefulWidget {
+  @override
+  State<GamePage> createState() => _GamePageState();
+}
 
-  // Widget background (index) {
-  //   return Container(
-  //     color: Colors.green,
-  //   );
-  // }
-
+class _GamePageState extends State<GamePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.green,
+    var screenSize = MediaQuery.of(context).size;
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            Container(
+              height: 50,
+              child: const DrawerHeader(
+                child: Text("Navigation"),
+              ),
+            ),
+            ListTile(
+              title: const Text("Home"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+              },
+            )
+          ]
+        )
+      ),
     );
-    throw UnimplementedError();
   }
 }
+
+// Images for hangman
+// const List<String> hangmanPics = [
+//   "asset/images/Hangman1.png",
+//   "asset/images/Hangman2.png",
+//   "asset/images/Hangman3.png",
+//   "asset/images/Hangman5.png",
+//   "asset/images/Hangman5.png",
+//   "asset/images/HangmanFull.png",
+// ];
+
+
