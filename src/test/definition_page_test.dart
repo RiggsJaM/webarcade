@@ -1,11 +1,11 @@
-import 'package:retro_arcade/models/word.dart';
+import 'package:retro_arcade/models/definition.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:mockito/mockito.dart';
 import 'package:retro_arcade/main.dart';
 import 'package:mockito/annotations.dart';
-import 'package:retro_arcade/models/definition.dart';
+import 'package:retro_arcade/models/record.dart';
 import 'package:retro_arcade/screens/definition_page.dart';
 
 // Generate a MockClient using the Mockito package.
@@ -17,7 +17,7 @@ void main() {
     test('returns a Definition if the http call completes successfully', () async {
       final client = MockClient((_) async =>
         http.Response(response, 200));
-      expect(await fetchWord(client, "flutter"), isA<Word>());
+      expect(await fetchRecord(client, "flutter"), isA<Record>());
 
     });
   });

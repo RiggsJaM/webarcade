@@ -1,21 +1,19 @@
-class Definition {
-  final String ref; // Which MW Api
-  final String id;
-  final String def;
-  final String functionLabel;
+import 'package:retro_arcade/models/record.dart';
 
-  const Definition({
-    required this.ref,
-    required this.id,
-    required this.def,
-    required this.functionLabel});
+class Definition {
+  final String id;
+  final List<Record> definitions;
+
+  Definition({required this.id, required this.definitions});
 
   factory Definition.fromJson(Map<String, dynamic> json) {
+    var list = json['shortdef'] as List; // TODO: test this!!!
+    List<Record> definitionsList =
+    list.map((i) => Record.fromJson(i)).toList();
+
     return Definition(
-      id: json['id'],
-      ref: json['ref'],
-      def: json['shortdef'], // Defining Text
-      functionLabel: json['fl'],
+      id: json['id'], //TODO: Test This!!!
+      definitions: definitionsList,
     );
   }
 }
