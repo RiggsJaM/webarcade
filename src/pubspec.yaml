@@ -99,3 +99,6 @@ flutter:
     - assets/images/Hangman5.png
     - assets/images/HangmanFull.png
     - assets/images/Solitaire.gif
+    - assets/json/flutterDef.json
+    - assets/json/onomatopoeiaDef.json
+    - assets/json/radiatorDef.json
