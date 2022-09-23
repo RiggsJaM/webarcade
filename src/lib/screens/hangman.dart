@@ -169,10 +169,6 @@ const List<String> hangmanPics = [
   "assets/images/Hangman5.png",
   "assets/images/Hangman5.png",
   "assets/images/HangmanFull.png",
-
-
-
-  
   "assets/images/gallows.png",
 ];
 

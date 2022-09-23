@@ -1,0 +1,85 @@
+[
+  {
+    "meta": {
+      "id": "radiator",
+      "uuid": "1c92045a-ba10-4ac6-97be-b48d1060a206",
+      "sort": "180131000",
+      "src": "collegiate",
+      "section": "alpha",
+      "stems": [
+        "radiator",
+        "radiators"
+      ],
+      "offensive": false
+    },
+    "hwi": {
+      "hw": "ra*di*a*tor",
+      "prs": [
+        {
+          "mw": "ˈrā-dē-ˌā-tər",
+          "sound": {
+            "audio": "radiat07",
+            "ref": "c",
+            "stat": "1"
+          }
+        },
+        {
+          "l": "dialectal",
+          "mw": "ˈra-"
+        }
+      ]
+    },
+    "fl": "noun",
+    "def": [
+      {
+        "sseq": [
+          [
+            [
+              "bs",
+              {
+                "sense": {
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}one that {a_link|radiates}: such as"
+                    ]
+                  ]
+                }
+              }
+            ],
+            [
+              "sense",
+              {
+                "sn": "a",
+                "dt": [
+                  [
+                    "text",
+                    "{bc}any of various devices (such as a series of pipes or tubes) for transferring heat from a fluid within to an area or object outside"
+                  ]
+                ]
+              }
+            ],
+            [
+              "sense",
+              {
+                "sn": "b",
+                "dt": [
+                  [
+                    "text",
+                    "{bc}a transmitting antenna"
+                  ]
+                ]
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "date": "1836",
+    "shortdef": [
+      "one that radiates: such as",
+      "any of various devices (such as a series of pipes or tubes) for transferring heat from a fluid within to an area or object outside",
+      "a transmitting antenna"
+    ]
+  }
+]
