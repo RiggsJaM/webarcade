@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                 height: screenSize.height * 0.7,
                 width: screenSize.width,
                 child: Image.asset(
-                  'assets/images/wideretroarcade.jpg',
+                  'assets/images/retroarcadelogo.jpg',
                   fit: BoxFit.cover,
                 ),
               ),
