@@ -1,0 +1,202 @@
+[
+  {
+    "meta": {
+      "id": "onomatopoeia",
+      "uuid": "32bb5182-d079-4291-aff2-c3ad25b3779f",
+      "sort": "150787000",
+      "src": "collegiate",
+      "section": "alpha",
+      "stems": [
+        "onomatopoeia",
+        "onomatopoeias",
+        "onomatopoeic",
+        "onomatopoeically",
+        "onomatopoetic",
+        "onomatopoetically"
+      ],
+      "offensive": false
+    },
+    "hwi": {
+      "hw": "on*o*mato*poe*ia",
+      "prs": [
+        {
+          "mw": "ˌä-nə-ˌmä-tə-ˈpē-ə",
+          "sound": {
+            "audio": "onomat03",
+            "ref": "c",
+            "stat": "1"
+          }
+        },
+        {
+          "mw": "-ˌma-"
+        }
+      ]
+    },
+    "fl": "noun",
+    "def": [
+      {
+        "sseq": [
+          [
+            [
+              "sense",
+              {
+                "sn": "1",
+                "dt": [
+                  [
+                    "text",
+                    "{bc}the naming of a thing or action by a vocal {d_link|imitation|imitation:1} of the sound associated with it (such as {it}buzz, hiss{/it})"
+                  ]
+                ],
+                "sdsense": {
+                  "sd": "also",
+                  "dt": [
+                    [
+                      "text",
+                      "{bc}a word formed by onomatopoeia "
+                    ],
+                    [
+                      "vis",
+                      [
+                        {
+                          "t": "In comic books, when you see someone with a gun, you know it's only going off when you read the {wi}onomatopoeias{/wi}.",
+                          "aq": {
+                            "auth": "Christian Marclay"
+                          }
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              }
+            ]
+          ],
+          [
+            [
+              "sense",
+              {
+                "sn": "2",
+                "dt": [
+                  [
+                    "text",
+                    "{bc}the use of words whose sound suggests the sense "
+                  ],
+                  [
+                    "vis",
+                    [
+                      {
+                        "t": "a study of the poet's {wi}onomatopoeia{/wi}"
+                      }
+                    ]
+                  ]
+                ]
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "uros": [
+      {
+        "ure": "on*o*mato*poe*ic",
+        "prs": [
+          {
+            "mw": "ˌä-nə-ˌmä-tə-ˈpē-ik",
+            "sound": {
+              "audio": "onomat04",
+              "ref": "c",
+              "stat": "1"
+            }
+          },
+          {
+            "mw": "-ˌma-"
+          }
+        ],
+        "vrs": [
+          {
+            "vl": "or",
+            "va": "on*o*mato*po*et*ic",
+            "prs": [
+              {
+                "mw": "ˌä-nə-ˌmä-tə-pō-ˈe-tik",
+                "sound": {
+                  "audio": "onomat06",
+                  "ref": "c",
+                  "stat": "1"
+                }
+              },
+              {
+                "mw": "-ˌma-"
+              }
+            ]
+          }
+        ],
+        "fl": "adjective"
+      },
+      {
+        "ure": "on*o*mato*poe*i*cal*ly",
+        "prs": [
+          {
+            "mw": "ˌä-nə-ˌmä-tə-ˈpē-ə-k(ə-)lē",
+            "sound": {
+              "audio": "onomat05",
+              "ref": "c",
+              "stat": "1"
+            }
+          },
+          {
+            "mw": "-ˌma-"
+          }
+        ],
+        "vrs": [
+          {
+            "vl": "or",
+            "va": "on*o*mato*po*et*i*cal*ly",
+            "prs": [
+              {
+                "mw": "ˌä-nə-ˌmä-tə-pō-ˈe-ti-k(ə-)lē",
+                "sound": {
+                  "audio": "onomat07",
+                  "ref": "c",
+                  "stat": "1"
+                }
+              },
+              {
+                "mw": "-ˌma-"
+              }
+            ]
+          }
+        ],
+        "fl": "adverb"
+      }
+    ],
+    "quotes": [
+      {
+        "t": "The term hiccup is an example of {qword}onomatopoeia{/qword} …",
+        "aq": {
+          "auth": "Fred Cicetti",
+          "source": "{it}Montague Reporter{/it}",
+          "aqdate": "6 Mar. 2008"
+        }
+      },
+      {
+        "t": "You might think it was an {qword}onomatopoeia{/qword} of the sound a Frisbee makes as it moves through the air, but the name has been attributed for years to the Frisbie Pie Company of Bridgeport, Conn., which went out of business in 1958.",
+        "aq": {
+          "auth": "Mark Danna",
+          "source": "{it}Sports Illustrated{/it}",
+          "aqdate": "11 May 1987"
+        }
+      }
+    ],
+    "et": [
+      [
+        "text",
+        "Late Latin, from Greek {it}onomatopoiia{/it}, from {it}onomat-, onoma{/it} name + {it}poiein{/it} to make {ma}{mat|poet|}{/ma}"
+      ]
+    ],
+    "date": "circa 1553{ds||1||}",
+    "shortdef": [
+      "the naming of a thing or action by a vocal imitation of the sound associated with it (such as buzz, hiss); also : a word formed by onomatopoeia",
+      "the use of words whose sound suggests the sense"
+    ]
+  }
+]
