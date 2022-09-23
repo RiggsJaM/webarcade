@@ -27,7 +27,6 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
   double _scrollPosition = 0;

@@ -99,9 +99,9 @@ flutter:
     - assets/images/Hangman5.png
     - assets/images/HangmanFull.png
     - assets/images/Solitaire.gif
+    - assets/images/gallows.png
     - assets/images/Hanman.png
     - assets/images/Tic-Tac-Toe.jpg
-    
     - assets/json/flutterDef.json
     - assets/json/onomatopoeiaDef.json
     - assets/json/radiatorDef.json
