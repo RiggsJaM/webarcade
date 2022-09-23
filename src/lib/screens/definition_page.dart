@@ -9,7 +9,11 @@ import 'package:retro_arcade/mw_key.dart';
 
 import 'package:http/http.dart' as http;
 
-
+/// The [fetchRecord] function takes an http.Client [client] and
+/// a String [myWord] as parameters. It is an asynchronous function,
+/// meaning we have to wait for however long it takes for the server
+/// to produce a [response].
+/// TODO: Address the Data Structure issue. Decoding this bad boy is rough.
 Future<Record> fetchRecord(http.Client client, String myWord) async {
   final String url = 'https://dictionaryapi.com/api/v3/references/collegiate/json/${myWord}?key=${mw_apiKey}';
   final response = await client.get(Uri.parse(url));
@@ -85,7 +89,7 @@ class _DefinitionPage extends State<DefinitionPage> {
             future: futureRecord,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Text(snapshot.data!.shortDef.shortDef.toString()); // Should give the first definition in the list
+                return Text(snapshot.data!.shortDef.toString()); // Should give the first definition in the list
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               }
