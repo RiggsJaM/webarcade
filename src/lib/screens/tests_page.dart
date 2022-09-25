@@ -53,8 +53,9 @@ class _GherkinTestsPage extends State<GherkinTestsPage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
+
       _counter++;
-      debugPrint('Hallo, Welt!');
+      //debugPrint('Hallo, Welt!');
     });
   }
 
@@ -96,7 +97,7 @@ class _GherkinTestsPage extends State<GherkinTestsPage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              '${_counter == 3 ? 'BDD Rules!' : _counter}',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
