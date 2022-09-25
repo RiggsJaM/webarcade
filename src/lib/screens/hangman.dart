@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:retro_arcade/main.dart';
 
@@ -24,7 +24,9 @@ class GamePage extends StatefulWidget {
 
 class _GamePageState extends State<GamePage> {
   //Word to test if the functionality works
-  String testWord = "test".toUpperCase();
+  static String testWord = "test".toUpperCase();
+
+  List<String> completeWord = [];
 
   //Lives
   int lives = 0;
@@ -79,45 +81,135 @@ class _GamePageState extends State<GamePage> {
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: testWord.split('').map((e) => wordLetters(e.toUpperCase(), !chosenLetter.contains(e.toUpperCase()))).toList(),
           ),
-          SizedBox(
-            width: screenSize.height * 0.75,
-            height: screenSize.width * 0.90,
-            child: GridView.count(
-              crossAxisCount: 7,
-              mainAxisSpacing: 12.0,
-              crossAxisSpacing: 12.0,
-              padding: EdgeInsets.all(10.0),
-              children: letters.map((e) {
-                return RawMaterialButton(
-                  onPressed: chosenLetter.contains(e) ? null : () {
-                    setState(() {
-                      chosenLetter.add(e);
-                      if(!testWord.split('').contains(e.toUpperCase())) {
-                        lives++;
-                      }
-                    });
-                  },
-                  shape: RoundedRectangleBorder (
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
-                  fillColor: chosenLetter.contains(e) ? Colors.black : PageColor.otherColor,
-                  child: Text (
-                  e,
-                  style: const TextStyle (
-                    color: Colors.white,
-                    fontSize: 10,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              );
-            }).toList(),
+          Expanded(
+            child: SizedBox(
+              width: screenSize.height * 0.75,
+              height: screenSize.width * 0.90,
+              child: GridView.count(
+                crossAxisCount: 7,
+                mainAxisSpacing: 12.0,
+                crossAxisSpacing: 12.0,
+                padding: EdgeInsets.all(10.0),
+                children: letters.map((e) {
+                  return RawMaterialButton(
+                    onPressed: chosenLetter.contains(e) ? null : () {
+                      setState(() {
+                        chosenLetter.add(e);
+                        print("Chosen Letter");
+                        if(!testWord.split('').contains(e.toUpperCase())) {
+                          lives++;
+                        }
+                        if (lives >= 6) {
+                          showDialog(context: context, builder: (BuildContext context) => youLose());
+                        }
+                        if(testWord.toUpperCase().contains(e.toUpperCase())) {
+                          completeWord.add(e);
+                          if (completeWord.toSet().containsAll(testWord.split('').toSet())) {
+                            showDialog(context: context, builder: (BuildContext context) => youWin());
+                          }
+                        }
+                      });
+                    },
+                    shape: RoundedRectangleBorder (
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    fillColor: chosenLetter.contains(e) ? Colors.black : Colors.purpleAccent,
+                    child: Text (
+                      e,
+                      style: const TextStyle (
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  );
+              }).toList(),
+              ),
             ),
           )
         ],
       ),
+    );
+  }
+
+  Widget youLose() {
+    return AlertDialog(
+      title: const Text("You're Lousy"),
+      content: Column (
+          mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const <Widget>[
+          Text("You Lose")
+        ],
+        ),
+      actions: <Widget>[
+        RawMaterialButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Hangman(),));
+              },
+            child: const Text("New Game",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 10,
+                fontWeight: FontWeight.w500
+              ),
+            ),
+          ),
+        RawMaterialButton(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => HomePage(),));
+          },
+          child: const Text("Home Page",
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 10,
+                fontWeight: FontWeight.w500
+            ),
+          ),
+        ),
+        ],
+      );
+  }
+
+  Widget youWin() {
+    return AlertDialog(
+      title: const Text("You're Amazing"),
+      content: Column (
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const <Widget>[
+          Text("You Win")
+        ],
+      ),
+      actions: <Widget>[
+        RawMaterialButton(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Hangman(),));
+          },
+          child: const Text("New Game",
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 10,
+                fontWeight: FontWeight.w500
+            ),
+          ),
+        ),
+        RawMaterialButton(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => HomePage(),));
+          },
+          child: const Text("Home Page",
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 10,
+                fontWeight: FontWeight.w500
+            ),
+          ),
+        ),
+      ],
     );
   }
   
@@ -136,9 +228,10 @@ class _GamePageState extends State<GamePage> {
     return Container (
       height: 75,
       width: 75,
-      padding: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.fromLTRB(20.0, 5.0, 0, 10.0),
       decoration: BoxDecoration(
-        color: PageColor.otherColor,
+        color: Colors.black,
+        border: Border.all(color: Colors.cyanAccent),
         borderRadius: BorderRadius.circular(5.0),
       ),
       child: Visibility(
@@ -148,17 +241,12 @@ class _GamePageState extends State<GamePage> {
           style: const TextStyle(
           color: Colors.white,
             fontWeight: FontWeight.w500,
-            fontSize: 40.0,
+            fontSize: 50.0,
           ),
         ),
       ),
     );
   }
-}
-
-class PageColor {
-  static Color mainColor = const Color(0x00ffffff);
-  static Color otherColor = const Color(0x00000000);
 }
 
 //Images for hangman

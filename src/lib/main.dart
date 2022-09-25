@@ -133,7 +133,8 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Row(
                   children: [
-                    Column(
+                    Expanded(
+                    child: Column(
                       children: [
                         Padding(
                           padding: const EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 0.0),
@@ -170,7 +171,9 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    Column(
+                    ),
+                    Expanded (
+                    child: Column(
                       children: [
                         Padding(
                           padding: const EdgeInsets.fromLTRB(26.0, 0.0, 0.0, 0.0),
@@ -207,42 +210,45 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(26.0, 0.0, 0.0, 0.0),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => TicTacToe(),));
-                            },
-                            child: SizedBox(
-                              height: screenSize.width / 6,
-                              width: screenSize.width / 3.2,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(5.0),
-                                child: Image.asset(
-                                  'assets/images/Tic-Tac-Toe.jpg',
-                                  fit: BoxFit.cover,
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(26.0, 0.0, 0.0, 0.0),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => TicTacToe(),));
+                              },
+                              child: SizedBox(
+                                height: screenSize.width / 6,
+                                width: screenSize.width / 3.2,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  child: Image.asset(
+                                    'assets/images/Tic-Tac-Toe.jpg',
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            bottom: screenSize.height / 70,
-                            top: 10.0,
-                          ),
-                          child: const Text(
-                            "Tic-Tac-Toe",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 20,
+                          Padding(
+                            padding: EdgeInsets.only(
+                              bottom: screenSize.height / 70,
+                              top: 10.0,
+                            ),
+                            child: const Text(
+                              "Tic-Tac-Toe",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 20,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
