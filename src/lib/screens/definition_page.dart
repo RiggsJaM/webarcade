@@ -15,7 +15,7 @@ import 'package:http/http.dart' as http;
 /// meaning we have to wait for however long it takes for the server
 /// to produce a [response].
 /// TODO: Address the Data Structure issue. Decoding this bad boy is rough.
-Future<Record> fetchRecord(http.Client client, String myWord) async {
+Future<List<Record>> fetchRecordList(http.Client client, String myWord) async {
   final String url = 'https://dictionaryapi.com/api/v3/references/collegiate/json/${myWord}?key=${mw_apiKey}';
   final response = await client.get(Uri.parse(url));
 
@@ -25,10 +25,10 @@ Future<Record> fetchRecord(http.Client client, String myWord) async {
 
 
     final recordList = recordFromJson(response.body);
-    final firstDefMap = recordList[0];
-    final secondDefMap = recordList[1];
+    // final firstDefMap = recordList[0];
+    // final secondDefMap = recordList[1];
 
-    return firstDefMap;
+    return recordList;
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
@@ -50,7 +50,7 @@ class _DefinitionPage extends State<DefinitionPage> {
 
   String _urlPart = 'https://dictionaryapi.com/api/v3/references/collegiate/json/';
 
-  late Future<Record> _futureRecord;
+  late Future<List<Record>> _futureRecordList;
   late TextEditingController _wordController;
 
   String _responseBody = '<empty>';
@@ -69,7 +69,7 @@ class _DefinitionPage extends State<DefinitionPage> {
   @override
   void initState() {
     super.initState();
-    _futureRecord= fetchRecord(
+    _futureRecordList = fetchRecordList(
         http.Client(), "flutter"); // Added http.Client() for testing purposes
 
     this._wordController = TextEditingController();
@@ -112,8 +112,8 @@ class _DefinitionPage extends State<DefinitionPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Center(
-                  child: FutureBuilder<Record>(
-                    future: _futureRecord,
+                  child: FutureBuilder<List<Record>>(
+                    future: _futureRecordList,
                     builder: (context, snapshot) {
                       List<Widget> children;
 
@@ -175,7 +175,7 @@ class _DefinitionPage extends State<DefinitionPage> {
                                         content: (
                                             Text('${_wordController
                                                 .text}\n\n${snapshot.data!
-                                                .shortdef!.first}')
+                                                .first!.shortdef!.toString()}')
 
                                         ),
                                       );
@@ -297,14 +297,14 @@ class _DefinitionPage extends State<DefinitionPage> {
   }
 
   void _updateApiResponse(String word) {
-    _futureRecord= fetchRecord(http.Client(), word);
+    _futureRecordList = fetchRecordList(http.Client(), word);
   }
 
 
   void _recordFetch(String myWord) async {
     _reset();
     setState(() => this._pending = true);
-    setState(() => this._futureRecord= fetchRecord(http.Client(), myWord));
+    setState(() => this._futureRecordList = fetchRecordList(http.Client(), myWord));
   }
 
 
