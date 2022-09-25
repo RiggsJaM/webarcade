@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-List<Welcome>  welcomeFromJson(String  str) => List<Welcome>.from(json.decode(str).map((x) => Welcome.fromJson(x)));
+List<Record>  recordFromJson(String  str) => List<Record>.from(json.decode(str).map((x) => Record.fromJson(x)));
 
-String  welcomeToJson(List<Welcome>  data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String  recordToJson(List<Record>  data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Welcome {
-  Welcome({
+class Record {
+  Record({
     required this.meta,
     required this.hom,
     required this.hwi,
@@ -29,7 +29,7 @@ class Welcome {
   String? date;
   List<String >? shortdef;
 
-  factory Welcome.fromJson(Map<String , dynamic>  json) => Welcome(
+  factory Record.fromJson(Map<String , dynamic>  json) => Record(
     meta: Meta.fromJson(json["meta"]),
     hom: json["hom"] == null ? null : json["hom"],
     hwi: Hwi.fromJson(json["hwi"]),

@@ -16,7 +16,7 @@ void main() {
     test('returns a Definition if the http call completes successfully', () async {
       final client = MockClient((_) async =>
         http.Response(response, 200));
-      expect(await fetchWelcome(client, "flutter"), isA<Welcome>());
+      expect(await fetchRecord(client, "flutter"), isA<Record>());
 
     });
   });
