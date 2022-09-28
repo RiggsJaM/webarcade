@@ -78,3 +78,18 @@ This step should take a few seconds to complete. After you update any .feature f
 
 
 Simply open the tests_page_test.dart file, click the run icon next to your newly generated tests, and see the results!
+
+
+---
+
+
+Here is some text to help reference what to type in the Gherkin clauses.
+
+        # Comments in Gherkin look like this!
+
+
+        # Feature: Title of the Scenario
+        #   Scenario: [Individual thing we're testing]
+        #   Given [Preconditions or Initial Context]
+        #   When [Event or Trigger]
+        #   Then [Expected output]
