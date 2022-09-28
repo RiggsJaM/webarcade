@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:retro_arcade/screens/definition_page.dart';
 import 'package:retro_arcade/screens/hangman.dart';
+import 'package:retro_arcade/screens/new_definition_page.dart';
 import 'package:retro_arcade/screens/solitaire.dart';
+import 'package:retro_arcade/screens/tests_page.dart';
 import 'package:retro_arcade/screens/tictactoe.dart';
 
 void main() {
@@ -92,7 +94,13 @@ class _HomePageState extends State<HomePage> {
             ListTile (
               title: const Text("*DEBUG* Definitions"),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DefinitionPage(),));
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MyDefinitionPage(),));
+              },
+            ),
+            ListTile (
+              title: const Text("Gherkin Tests"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => GherkinTestsPage(title: "Gherkin Tests"),));
               },
             ),
           ],
