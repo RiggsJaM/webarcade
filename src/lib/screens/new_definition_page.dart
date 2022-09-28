@@ -37,11 +37,15 @@ class _MyDefinitionPageState extends State<MyDefinitionPage> {
     var api = MerriamWebsterApi(); // so far so good
 
     // Here is where we actually make our req
+
+    // Then is not working
     api.getDefinitionRecord(http.Client(), myWord).then((httpResponse) {
           _currentWord = myWord;
           _currentJsonResponse = httpResponse.body; // Works up to here
           var tempList = [];
           tempList = api.parseJsonResponse(_currentJsonResponse);
+
+
           // Dies here...
           setState(() {
             // Disable Progress bar
