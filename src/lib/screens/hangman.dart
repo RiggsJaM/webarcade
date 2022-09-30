@@ -98,7 +98,6 @@ class _GamePageState extends State<GamePage> {
                     onPressed: chosenLetter.contains(e) ? null : () {
                       setState(() {
                         chosenLetter.add(e);
-                        print("Chosen Letter");
                         if(!testWord.split('').contains(e.toUpperCase())) {
                           lives++;
                         }
