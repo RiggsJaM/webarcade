@@ -244,6 +244,7 @@ class _GamePageState extends State<GamePage> {
       height: 75,
       width: 75,
       padding: const EdgeInsets.fromLTRB(20.0, 5.0, 0, 10.0),
+      margin: const EdgeInsets.all(5.0),
       decoration: BoxDecoration(
         color: Colors.black,
         border: Border.all(color: Colors.cyanAccent),
