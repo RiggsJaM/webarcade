@@ -47,9 +47,9 @@ class _GamePageState extends State<GamePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            Container(
+            const SizedBox(
               height: 50,
-              child: const DrawerHeader(
+              child: DrawerHeader(
                 child: Text("Navigation"),
               ),
             ),
