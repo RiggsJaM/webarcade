@@ -34,6 +34,7 @@ void main() {
     expect(find.text('Z'), findsOneWidget);
   });
 
+  //Test is not finished
   testWidgets("Wrong Guess Increases Lives", (WidgetTester tester) async {
     int livesTest = GamePageState().lives;
 
