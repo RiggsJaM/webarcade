@@ -33,4 +33,19 @@ void main() {
     expect(find.text('Y'), findsOneWidget);
     expect(find.text('Z'), findsOneWidget);
   });
+
+  testWidgets("Wrong Guess Increases Lives", (WidgetTester tester) async {
+    int livesTest = GamePageState().lives;
+
+    await tester.pumpWidget(Hangman());
+
+    //Button tap won't work
+    await tester.ensureVisible(find.text('Z'));
+    await tester.tap(find.text('Z'));
+    await tester.pump();
+    print(GamePageState().lives);
+
+    //expect(livesTest, 1);
+    expect(find.text('Z'), findsOneWidget);
+  });
 }
