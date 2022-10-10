@@ -46,7 +46,7 @@ void main() {
     await tester.pump();
     print(GamePageState().lives);
 
-    //expect(livesTest, 1);
+    expect(livesTest, 1);
     expect(find.text('Z'), findsOneWidget);
   });
 }
