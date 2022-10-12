@@ -69,8 +69,7 @@ class _DefinitionPage extends State<DefinitionPage> {
   @override
   void initState() {
     super.initState();
-    _futureRecordList = fetchRecordList(
-        http.Client(), "flutter"); // Added http.Client() for testing purposes
+    _futureRecordList = fetchRecordList(http.Client(), "flutter"); // Added http.Client() for testing purposes
 
     this._wordController = TextEditingController();
   }
