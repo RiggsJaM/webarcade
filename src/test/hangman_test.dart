@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:retro_arcade/screens/hangman.dart';
 
+///Many tests will have to be modified once more words other than "test" are added
+///The current tests are testing it in its current state
 void main() {
   testWidgets("Finds All The Letters On The Keyboard", (WidgetTester tester) async {
-    await tester.pumpWidget(Hangman());
+    await tester.pumpWidget(new Hangman());
 
     expect(find.text('A'), findsOneWidget);
     expect(find.text('B'), findsOneWidget);
@@ -34,19 +36,118 @@ void main() {
     expect(find.text('Z'), findsOneWidget);
   });
 
-  //Test is not finished
   testWidgets("Wrong Guess Increases Lives", (WidgetTester tester) async {
-    int livesTest = GamePageState().lives;
-
-    await tester.pumpWidget(Hangman());
-
-    //Button tap won't work
+    await tester.pumpWidget(new Hangman());
     await tester.ensureVisible(find.text('Z'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Z'));
-    await tester.pump();
-    print(GamePageState().lives);
 
-    expect(livesTest, 1);
+    expect(GamePageState.lives, 1);
     expect(find.text('Z'), findsOneWidget);
   });
+
+  //Will Pass On Its Own But Not When All Tests Are Run
+  testWidgets("Correct Guess Does Not Increases Lives", (WidgetTester tester) async {
+      await tester.pumpWidget(new Hangman());
+      await tester.ensureVisible(find.text('E'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('E'));
+      await tester.pumpAndSettle();
+
+      expect(GamePageState.lives, 0);
+      expect(find.text('E'), findsOneWidget);
+  });
+
+  testWidgets("Gallows shows up on the page", (WidgetTester tester) async {
+      await tester.pumpWidget(new Hangman());
+      await tester.pumpAndSettle();
+
+    expect(find.image(const AssetImage("assets/images/gallows.png")), findsOneWidget);
+  });
+
+  testWidgets("Head shows up on the page", (WidgetTester tester) async {
+      await tester.pumpWidget(new Hangman());
+      //await tester.pumpAndSettle();
+      await tester.tap(find.text('Z'));
+      //await tester.pumpAndSettle();
+
+    expect(find.image(const AssetImage("assets/images/Hangman1.png")), findsOneWidget);
+  });
+
+  testWidgets("Body shows up on the page", (WidgetTester tester) async {
+    await tester.pumpWidget(new Hangman());
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+
+    expect(find.image(const AssetImage("assets/images/Hangman2.png")), findsOneWidget);
+  });
+
+  testWidgets("Left Leg shows up on the page", (WidgetTester tester) async {
+    await tester.pumpWidget(Hangman());
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+
+    expect(find.image(const AssetImage("assets/images/Hangman3.png")), findsOneWidget);
+  });
+
+  testWidgets("Right Leg shows up on the page", (WidgetTester tester) async {
+    await tester.pumpWidget(Hangman());
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+
+    expect(find.image(const AssetImage("assets/images/Hangman4.png")), findsOneWidget);
+  });
+
+  testWidgets("Left Arm shows up on the page", (WidgetTester tester) async {
+    await tester.pumpWidget(Hangman());
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+
+    expect(find.image(const AssetImage("assets/Hangman5.png")), findsOneWidget);
+  });
+
+  testWidgets("Right Arm shows up on the page", (WidgetTester tester) async {
+    await tester.pumpWidget(Hangman());
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+
+    expect(find.image(const AssetImage("assets/images/HangmanFull.png")), findsOneWidget);
+  });
+
+  //test("Something", () => null);
 }

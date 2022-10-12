@@ -32,7 +32,7 @@ class GamePageState extends State<GamePage> {
   List<String> completeWord = [];
 
   //Lives
-  int lives = 0;
+  static int lives = 0;
 
   //List that holds the chosen letters
   List<String> chosenLetter = [];
@@ -306,7 +306,8 @@ class GamePageState extends State<GamePage> {
       height: 75,
       width: 75,
       padding: const EdgeInsets.fromLTRB(21.0, 7.0, 0, 10.0),
-      margin: const EdgeInsets.all(5.0),
+      //MARGIN BREAKS ALL THE TESTS
+      //margin: const EdgeInsets.all(5.0),
       decoration: BoxDecoration(
         color: Colors.black,
         border: Border.all(color: Colors.cyanAccent),
