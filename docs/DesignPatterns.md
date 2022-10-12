@@ -11,4 +11,4 @@ Due to our decision to use Flutter and Dart, we have found several uses of the B
 
 # Design Patterns for Potential Future Use
 
-...
+We will likely have more uses of the Builder pattern, as it creates the page differently, depending on which system Flutter will be building for. We may implement a Singleton in a few places, in the different games, but may not end up finding its way into the project.
