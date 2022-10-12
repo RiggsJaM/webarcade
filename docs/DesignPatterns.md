@@ -1,4 +1,4 @@
-#Design Patterns
+# Design Patterns
 
 Design Patterns was a book released in 1994, which outlined a set of guidelines for writing good Object Oriented Code, as well as potential pitfalls that might come therewith. We will be utilizing a couple of these original Design Patterns in our project.
 
