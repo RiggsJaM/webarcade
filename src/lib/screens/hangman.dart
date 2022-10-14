@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:retro_arcade/main.dart';
+import 'package:retro_arcade/components/commondrawer.dart';
+
 
 ///Class that defines the build widget that is basis of the Hangman page
 class Hangman extends StatelessWidget {
@@ -49,26 +51,16 @@ class GamePageState extends State<GamePage> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        centerTitle:true,
+        title: const Text(
+          'Hangman',
+          style: TextStyle(
+            fontSize:20,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const SizedBox(
-              height: 50,
-              child: DrawerHeader(
-                child: Text("Navigation"),
-              ),
-            ),
-            ListTile(
-              title: const Text("Home"),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => HomePage()));
-              },
-            )
-          ]
-        )
-      ),
+      drawer: CommonDrawer(),
       body:
           //Column that holds the Hangman keyboard, word, and images that are shown
           Column(
