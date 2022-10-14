@@ -5,6 +5,8 @@ import 'package:retro_arcade/screens/solitaire.dart';
 import 'package:retro_arcade/screens/tests_page.dart';
 import 'package:retro_arcade/screens/tictactoe.dart';
 
+import '../main.dart';
+
 class CommonDrawer extends StatefulWidget {
   const CommonDrawer({
     Key? key,
@@ -22,12 +24,33 @@ class CommonDrawerState extends State<CommonDrawer>{
         padding: EdgeInsets.zero,
         children: [
           const SizedBox(
-            height: 50,
+            height: 75,
             child: DrawerHeader(
-              child: Text("Games"),
+              child:
+              Text("Retro Arcade",
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w800,
+                )
+              ),
             ),
           ),
-
+          ListTile (
+            title: const Text("Home"),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MyApp(),));
+            },
+          ),
+          const Divider(),
+          const ListTile (
+            title: Text("Games",
+              style:
+                TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                )
+            ),
+          ),
           ListTile (
             title: const Text("Hangman"),
             onTap: () {
