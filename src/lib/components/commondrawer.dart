@@ -4,6 +4,8 @@ import 'package:retro_arcade/screens/new_definition_page.dart';
 import 'package:retro_arcade/screens/solitaire.dart';
 import 'package:retro_arcade/screens/tests_page.dart';
 import 'package:retro_arcade/screens/tictactoe.dart';
+import 'package:retro_arcade/screens/instructions.dart';
+
 
 import '../main.dart';
 
@@ -39,6 +41,12 @@ class CommonDrawerState extends State<CommonDrawer>{
             title: const Text("Home"),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MyApp(),));
+            },
+          ),
+          ListTile (
+            title: const Text("Game Instructions"),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Instructions(),));
             },
           ),
           const Divider(),

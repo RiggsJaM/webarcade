@@ -42,7 +42,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  @override
   void initState() {
     _scrollController.addListener(_scrollListener);
     super.initState();
