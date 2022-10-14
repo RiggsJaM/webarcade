@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:retro_arcade/main.dart';
 import 'package:retro_arcade/components/commondrawer.dart';
 
 class Instructions extends StatefulWidget {
@@ -48,10 +47,8 @@ class GameInstructions extends State<Instructions> {
           style: TextStyle(
               fontSize:20,
               fontWeight: FontWeight.w400,
-          )
-
-        )
-
+          ),
+        ),
       ),
       drawer: const CommonDrawer(),
       body: SingleChildScrollView(
