@@ -48,7 +48,6 @@ void main() {
     expect(find.text('Z'), findsOneWidget);
   });
 
-  //Passes on its own without the second expect, but will not pass when all tests run together
   testWidgets("Correct Guess Does Not Increases Lives", (WidgetTester tester) async {
       await tester.pumpWidget(new Hangman());
       await tester.ensureVisible(find.text('E'));
@@ -57,7 +56,6 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(GamePageState.lives, 0);
-      //expect(find.text('E'), findsOneWidget);
   });
 
   ///THESE TESTS ARE EXTREMELY TEMPORARY, THEY WILL ONLY WORK WITH THE WORD TO GUESS BEING TEST

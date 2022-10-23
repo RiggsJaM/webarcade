@@ -12,4 +12,24 @@ void main() {
 
     expect(GamePageState.lives, 0);
   });
+
+  testWidgets("2 Correct Guesses Does Not Increase Lives", (WidgetTester tester) async {
+    await tester.pumpWidget(new Hangman());
+    await tester.ensureVisible(find.text('S'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('S'));
+    await tester.pumpAndSettle();
+
+    expect(GamePageState.lives, 0);
+  });
+
+  testWidgets("3 Correct Guesses Does Not Increase Lives", (WidgetTester tester) async {
+    await tester.pumpWidget(new Hangman());
+    await tester.ensureVisible(find.text('T'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('T'));
+    await tester.pumpAndSettle();
+
+    expect(GamePageState.lives, 0);
+  });
 }
