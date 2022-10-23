@@ -4,10 +4,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import './step/the_app_is_running.dart';
-import './step/i_see_text.dart';
-import './step/i_tap_icon.dart';
-import './step/i_dont_see_text.dart';
+import '../features/step/the_app_is_running.dart';
+import '../features/step/i_see_text.dart';
+import '../features/step/i_tap_icon.dart';
+import '../features/step/i_dont_see_text.dart';
 
 void main() {
   group('''TestsPage''', () {

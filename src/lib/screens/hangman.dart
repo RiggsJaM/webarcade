@@ -42,6 +42,17 @@ class GamePageState extends State<GamePage> {
   //List that holds the alphabet
   List<String> letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
+
+
+  List<String> wordList = ["quilt","train","plant","river","table","chair","book","lamp","door","window","stove","fridge","computer","phone","TV","car","bike","skate","cactus","bus","taxi","van","truck","cord","plug","outlet","sink","faucet","mirror","toilet","bath","shower","tile","carpet","rug","sofa","love","seat","chest","box","ball","toy","cup","dish","fork","knife","spoon","pan","pot","oven"];
+  // function to generate a random word from the list above
+
+  String generateWord(List<String> word_list)
+  {
+    return "-1";
+  }
+
+
   ///Widget that creates most of the functionality and visual elements of the Hangman game
   @override
   Widget build(BuildContext context) {
