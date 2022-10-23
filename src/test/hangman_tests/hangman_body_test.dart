@@ -9,7 +9,7 @@ import 'package:retro_arcade/screens/hangman.dart';
 void main() {
   // The tests after this will not pass without this test first.
   // I do not understand it either.
-  testWidgets("Wrong Guess Increases Lives", (WidgetTester tester) async {
+  testWidgets("Test That's Here To Make The Others Work", (WidgetTester tester) async {
     await tester.pumpWidget(new Hangman());
     await tester.ensureVisible(find.text('Z'));
     await tester.pumpAndSettle();
