@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:retro_arcade/screens/hangman.dart';
-import '../step/i_call_the_generate_word_function.dart';
+import 'i_call_the_generate_word_function.dart';
 
 Future<void> theGenerateWordFunctionReturnsAWordFromTheWordlist(WidgetTester tester) async {
 
@@ -18,10 +18,10 @@ Future<void> theGenerateWordFunctionReturnsAWordFromTheWordlist(WidgetTester tes
   bool isInList = false;
 
   if (myWord.isNotEmpty)
-    {
-      // Check to see if my word is in the list
-      isInList = myWords.contains(myWord);
-    }
+  {
+    // Check to see if my word is in the list
+    isInList = myWords.contains(myWord);
+  }
 
   expect(isInList, true);
 }

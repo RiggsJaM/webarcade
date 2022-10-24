@@ -4,9 +4,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../features/step/the_hangman_page_is_running.dart';
-import '../features/step/i_call_the_generate_word_function.dart';
-import '../features/step/the_generate_word_function_returns_a_word_from_the_wordlist.dart';
+import 'step/the_hangman_page_is_running.dart';
+import 'step/i_call_the_generate_word_function.dart';
+import 'step/the_generate_word_function_returns_a_word_from_the_wordlist.dart';
 
 void main() {
   group('''SeedRandomWordInHangman''', () {

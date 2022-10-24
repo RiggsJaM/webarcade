@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:retro_arcade/screens/definition_page.dart';
 import 'package:retro_arcade/screens/hangman.dart';
-import 'package:retro_arcade/screens/new_definition_page.dart';
 import 'package:retro_arcade/screens/solitaire.dart';
 import 'package:retro_arcade/screens/tests_page.dart';
 import 'package:retro_arcade/screens/tictactoe.dart';
