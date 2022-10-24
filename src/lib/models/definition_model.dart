@@ -74,6 +74,13 @@ class Def {
     "vd": vd == null ? null : vd,
     "sseq": List<dynamic>.from(sseq!.map((x) => List<dynamic>.from(x.map((x) => List<dynamic>.from(x.map((x) => x)))))),
   };
+
+
+  String makeString()
+  {
+    return "-1";
+  }
+
 }
 
 class SseqClass {

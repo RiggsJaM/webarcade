@@ -61,7 +61,7 @@ class GamePageState extends State<GamePage> {
     return min + Random().nextInt(max - min);
   }
 
-  List<String> wordList = ["quilt","train","plant","river","table","chair","book","lamp","door","window","stove","fridge","computer","phone","TV","car","bike","skate","cactus","bus","taxi","van","truck","cord","plug","outlet","sink","faucet","mirror","toilet","bath","shower","tile","carpet","rug","sofa","love","seat","chest","box","ball","toy","cup","dish","fork","knife","spoon","pan","pot","oven"];
+  List<String> wordList = ["quilt","train","plant","river","snake","chair","vinyl","lamp","door","window","cow","ridge","cell","phone","meter","car","wheel","skate","cactus","bus","taxi","van","truck","chain","epoch","jail","handle","faucet","mirror","toilet","estate","shower","tile","brick","rug","sofa","love","seat","chest","box","ball","toy","cup","process","fork","knife","spoon","pan","book","oven"];
   // function to generate a random word from the list above
 
   /// Function to generate a random word, from the [word_list] above
@@ -87,7 +87,6 @@ class GamePageState extends State<GamePage> {
   /// and updates the
   void _callDictionaryApi() {
     var api = MerriamWebsterApi(); // so far so good
-
     // Here is where we actually make our req
 
     // Then is not working
@@ -324,7 +323,7 @@ class GamePageState extends State<GamePage> {
         RawMaterialButton(
             onPressed: () {
               _reset();
-              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const Hangman())).then((result) => setState(() {}));
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>const Hangman()));
               },
             child: const Text("New Game",
               style: TextStyle(
@@ -337,7 +336,9 @@ class GamePageState extends State<GamePage> {
         //Button that takes the user to the home page
         RawMaterialButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => HomePage(),));
+            _reset();
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+            initState();
           },
           child: const Text("Home Page",
             style: TextStyle(
@@ -371,7 +372,7 @@ class GamePageState extends State<GamePage> {
         RawMaterialButton(
           onPressed: () {
             _reset();
-            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const Hangman())).then((result) => setState(() {}));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Hangman()));
           },
           child: const Text("New Game",
             style: TextStyle(
@@ -384,7 +385,9 @@ class GamePageState extends State<GamePage> {
         //Button that takes the user to the home page
         RawMaterialButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => HomePage(),));
+            _reset();
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+            initState();
           },
           child: const Text("Home Page",
             style: TextStyle(
