@@ -58,7 +58,10 @@ Now run one of the two commands below to build and run the project.
 
 &nbsp; 
 ## Language
-This project is written and tested in Dart using the Flutter framework.
+This project is written and tested in Dart using the Flutter framework. 
+The project makes use of several packages, such as build_runner, cupertino_icons, http, and Mockito, see the src/pubspec.yaml file 
+for more info.
+
 
 &nbsp;  
 ## Authors
