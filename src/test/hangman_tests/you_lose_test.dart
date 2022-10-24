@@ -15,7 +15,7 @@ void main() {
   });
 
   testWidgets("You Lose The Game", (WidgetTester tester) async {
-    await tester.pumpWidget(new Hangman());
+    await tester.pumpWidget(new HangmanDebug());
     GamePageState.lives = 5;
     await tester.pumpAndSettle();
     await tester.tap(find.text('D'));

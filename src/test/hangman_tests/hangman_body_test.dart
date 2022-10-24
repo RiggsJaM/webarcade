@@ -8,12 +8,12 @@ void main() {
   // The tests after this will not pass without this test first.
   // I do not understand it either.
   testWidgets("Test That's Here To Make The Others Work", (WidgetTester tester) async {
-    await tester.pumpWidget(new Hangman());
+    await tester.pumpWidget(new HangmanDebug());
     await tester.ensureVisible(find.text('Z'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Z'));
 
-    expect(GamePageState.lives, 1);
+    GamePageState gps = GamePageState();
     expect(find.text('Z'), findsOneWidget);
   });
 

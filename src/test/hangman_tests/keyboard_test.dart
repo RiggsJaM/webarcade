@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:retro_arcade/screens/hangman.dart';
+import 'package:retro_arcade/screens/hangman_debug.dart';
 
 void main() {
   testWidgets("Finds All The Letters On The Keyboard", (WidgetTester tester) async {
-    await tester.pumpWidget(new Hangman());
+    await tester.pumpWidget(new HangmanDebug());
 
     expect(find.text('A'), findsOneWidget);
     expect(find.text('B'), findsOneWidget);

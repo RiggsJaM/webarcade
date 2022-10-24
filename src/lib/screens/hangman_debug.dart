@@ -83,12 +83,12 @@ class GamePageDebugState extends State<GamePageDebug> {
                     child: Container(
                         child: Stack(
                             children: [
-                              manImage(lives >= 1, "assets/images/HangmanDebug1.png"),
-                              manImage(lives >= 2, "assets/images/HangmanDebug2.png"),
-                              manImage(lives >= 3, "assets/images/HangmanDebug3.png"),
-                              manImage(lives >= 4, "assets/images/HangmanDebug4.png"),
-                              manImage(lives >= 5, "assets/images/HangmanDebug5.png"),
-                              manImage(lives >= 6, "assets/images/HangmanDebugFull.png"),
+                              manImage(lives >= 1, "assets/images/Hangman1.png"),
+                              manImage(lives >= 2, "assets/images/Hangman2.png"),
+                              manImage(lives >= 3, "assets/images/Hangman3.png"),
+                              manImage(lives >= 4, "assets/images/Hangman4.png"),
+                              manImage(lives >= 5, "assets/images/Hangman5.png"),
+                              manImage(lives >= 6, "assets/images/HangmanFull.png"),
                             ]
                         )
                     )
@@ -323,11 +323,11 @@ class GamePageDebugState extends State<GamePageDebug> {
 
 //Images for HangmanDebug
 const List<String> HangmanDebugPics = [
-  "assets/images/HangmanDebug1.png",
-  "assets/images/HangmanDebug2.png",
-  "assets/images/HangmanDebug3.png",
-  "assets/images/HangmanDebug5.png",
-  "assets/images/HangmanDebug5.png",
-  "assets/images/HangmanDebugFull.png",
+  "assets/images/Hangman1.png",
+  "assets/images/Hangman2.png",
+  "assets/images/Hangman3.png",
+  "assets/images/Hangman5.png",
+  "assets/images/Hangman5.png",
+  "assets/images/HangmanFull.png",
   "assets/images/gallows.png",
 ];
