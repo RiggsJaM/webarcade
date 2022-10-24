@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:retro_arcade/screens/hangman_debug.dart';
 import 'package:retro_arcade/screens/hangman.dart';
 
-///Many tests will have to be modified once more words other than "test" are added
-///The current tests are testing it in its current state
-///
 /// running flutter test test/hangman_tests/ in the src directory will run all tests in that folder
 void main() {
   // The tests after this will not pass without this test first.
@@ -21,14 +19,14 @@ void main() {
 
   ///THESE TESTS ARE EXTREMELY TEMPORARY, THEY WILL ONLY WORK WITH THE WORD TO GUESS BEING TEST
   testWidgets("Gallows shows up on the page", (WidgetTester tester) async {
-      await tester.pumpWidget(new Hangman());
+      await tester.pumpWidget(new HangmanDebug());
       await tester.pumpAndSettle();
 
     expect(find.image(const AssetImage("assets/images/gallows.png")), findsOneWidget);
   });
 
   testWidgets("Head shows up on the page", (WidgetTester tester) async {
-      await tester.pumpWidget(new Hangman());
+      await tester.pumpWidget(new HangmanDebug());
       //await tester.pumpAndSettle();
       await tester.tap(find.text('Z'));
       //await tester.pumpAndSettle();
@@ -37,7 +35,7 @@ void main() {
   });
 
   testWidgets("Body shows up on the page", (WidgetTester tester) async {
-    await tester.pumpWidget(new Hangman());
+    await tester.pumpWidget(new HangmanDebug());
     await tester.pumpAndSettle();
     await tester.tap(find.text('G'));
     await tester.pumpAndSettle();
@@ -48,7 +46,7 @@ void main() {
   });
 
   testWidgets("Left Leg shows up on the page", (WidgetTester tester) async {
-    await tester.pumpWidget(new Hangman());
+    await tester.pumpWidget(new HangmanDebug());
     await tester.pumpAndSettle();
     await tester.tap(find.text('G'));
     await tester.pumpAndSettle();
@@ -61,7 +59,7 @@ void main() {
   });
 
   testWidgets("Right Leg shows up on the page", (WidgetTester tester) async {
-    await tester.pumpWidget(new Hangman());
+    await tester.pumpWidget(new HangmanDebug());
     await tester.pumpAndSettle();
     await tester.tap(find.text('G'));
     await tester.pumpAndSettle();
@@ -76,7 +74,7 @@ void main() {
   });
 
   testWidgets("Left Arm shows up on the page", (WidgetTester tester) async {
-    await tester.pumpWidget(new Hangman());
+    await tester.pumpWidget(new HangmanDebug());
     await tester.pumpAndSettle();
     await tester.tap(find.text('G'));
     await tester.pumpAndSettle();
@@ -93,7 +91,7 @@ void main() {
   });
 
   testWidgets("Right Arm shows up on the page", (WidgetTester tester) async {
-    await tester.pumpWidget(new Hangman());
+    await tester.pumpWidget(new HangmanDebug());
     await tester.pumpAndSettle();
     await tester.tap(find.text('G'));
     await tester.pumpAndSettle();
