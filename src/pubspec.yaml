@@ -106,6 +106,7 @@ flutter:
     - assets/images/Tic-Tac-Toe.jpg
     - assets/images/NicNacNoe.png
     - assets/images/BuilderPattern.png
+    - assets/images/RA_Homepage.png
 
     - assets/json/flutterDef.json
     - assets/json/onomatopoeiaDef.json
