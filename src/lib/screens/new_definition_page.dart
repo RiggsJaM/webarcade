@@ -120,12 +120,9 @@ class _MyDefinitionPageState extends State<MyDefinitionPage> {
                     onPressed: () {
                       setState(() {
                         _apiCall = true;
-
-
                       });
                       _callDictionaryApi(_wordController.text); // possibly breaking (inside) here?
-                      debugPrint(
-                          'Fetch Button Pressed... The current JSON Response is: \n${_currentJsonResponse}');
+                      debugPrint('Fetch Button Pressed... The current JSON Response is: \n${_currentJsonResponse}');
 
                       showDialog(
                         context: context,
