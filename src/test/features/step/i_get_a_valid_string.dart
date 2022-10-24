@@ -14,11 +14,20 @@ Future<void> iGetAValidString(WidgetTester tester) async {
   late Record myRec = tempList.first;
 
 
+
   Def myDef = myRec!.def!.first;
+  var mysSeq = myDef.sseq;
+  var myDefin = mysSeq!.first;
 
-
-  late String response = myDef.makeString();
+  late String response = myDefin.toString();
 
   expect(response, isNotNull);
   expect(response != "-1", true);
+
+
+  // After considerable testing and so forth, it has become clear that the
+  //  use of shortdef is just gonna have to suffice. It doesn't afford
+  //  anything right now to use dt, from deep within the def class.
+
+
 }
