@@ -1,5 +1,8 @@
 # Classic Web Arcade
 
+
+![RA_Homepage](src/assets/images/RA_Homepage.png)
+
 ## Description
 This project is a web app that plays and displays different types of classic game such as Solitaire, Hangman, Tic-Tac-Toe etc. Even though this project 
 is a web app, it can only be opened in Chrome and Edge. You CANNOT open this in safari or any other browser. 
@@ -58,7 +61,10 @@ Now run one of the two commands below to build and run the project.
 
 &nbsp; 
 ## Language
-This project is written and tested in Dart using the Flutter framework.
+This project is written and tested in Dart using the Flutter framework. 
+The project makes use of several packages, such as build_runner, cupertino_icons, http, and Mockito, see the src/pubspec.yaml file 
+for more info.
+
 
 &nbsp;  
 ## Authors

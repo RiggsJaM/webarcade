@@ -1,6 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:retro_arcade/main.dart';
 import 'package:retro_arcade/components/commondrawer.dart';
+
+import '../models/merriam_webster_api.dart';
+import 'package:http/http.dart' as http;
 
 
 ///Class that defines the build widget that is basis of the Hangman page
@@ -41,6 +46,111 @@ class GamePageState extends State<GamePage> {
 
   //List that holds the alphabet
   List<String> letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+
+  // For API Call / Definition
+  late TextEditingController _wordController;
+  String _currentJsonResponse = "";
+  String _currentWord = "";
+  String _currentWordShortdef = "";
+  bool _apiCall = false;
+
+
+  /// Function to generate a random number, between 1 and 50
+  int randomNum(int min, int max) {
+    return min + Random().nextInt(max - min);
+  }
+
+  List<String> wordList = ["quilt","train","plant","river","snake","chair","vinyl","lamp","door","window","cow","ridge","cell","phone","meter","car","wheel","skate","cactus","bus","taxi","van","truck","chain","epoch","jail","handle","faucet","mirror","toilet","estate","shower","tile","brick","rug","sofa","love","seat","chest","box","ball","toy","cup","process","fork","knife","spoon","pan","book","oven"];
+  // function to generate a random word from the list above
+
+  /// Function to generate a random word, from the [word_list] above
+  String generateWord(List<String> word_list)
+  {
+    int seed = randomNum(1, 50);
+    return word_list.elementAt(seed);
+  }
+
+  /// Function to remove brackets from [definition] string
+  String removeBrackets(String definition)
+  {
+    String revised = definition.replaceAll("[","");
+    revised = revised.replaceAll("]", " ");
+    return revised;
+  }
+
+  late String myNewWord = generateWord(wordList).toUpperCase();
+
+  // j
+  /// The private _callDictionaryApi function takes a String [myWord] as
+  /// parameter input, and then calls the [merriam_webster_api] API functions,
+  /// and updates the
+  void _callDictionaryApi() {
+    var api = MerriamWebsterApi(); // so far so good
+    // Here is where we actually make our req
+
+    // Then is not working
+    api.getDefinitionRecord(http.Client(), myNewWord).then((httpResponse) {
+      _currentWord = myNewWord;
+      _currentJsonResponse = httpResponse.body; // Works up to here
+      var tempList = [];
+      tempList = api.parseJsonResponse(_currentJsonResponse);
+
+      // Dies here...
+      setState(() {
+        // Disable Progress bar
+        _apiCall = false;
+        _currentJsonResponse = httpResponse.body; // This is a JSON String
+        _currentWordShortdef = tempList!.first!.shortdef!.toString();
+
+        _currentWordShortdef = removeBrackets(_currentWordShortdef);
+
+        _wordController.text = myNewWord;
+
+        debugPrint('Currently inside the _callDictionaryApi function.');
+        debugPrint('');
+      }); // Set state end
+    }, onError: (error) {
+      setState(() {
+        _apiCall = false;
+        _currentJsonResponse = error.toString();
+      });
+    });
+  }
+
+  void _reset({bool resetControllers = true}) {
+    setState(() {
+      this._wordController.text = '';
+      this._currentWord = '';
+      this._currentWordShortdef = '';
+      this._currentJsonResponse = '';
+    });
+
+    lives = 0;
+  }
+
+
+  // Init State function
+
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Forgetting to initalize here will make go bam bam
+    _callDictionaryApi();
+
+    this._wordController = TextEditingController();
+  }
+
+
+  @override
+  void dispose() {
+    _wordController.dispose();
+    super.dispose();
+  }
+
+
 
   ///Widget that creates most of the functionality and visual elements of the Hangman game
   @override
@@ -99,7 +209,8 @@ class GamePageState extends State<GamePage> {
               //Row that holds the boxes where the guessed letters that are in the word will go
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: testWord.split('').map((e) => wordLetters(e.toUpperCase(), !chosenLetter.contains(e.toUpperCase()))).toList(),
+                // Note the use of myNewWord, instead of testWord
+                children: myNewWord.split('').map((e) => wordLetters(e.toUpperCase(), !chosenLetter.contains(e.toUpperCase()))).toList(),
               ),
               Expanded(
               //SizedBox that holds the keyboard
@@ -153,7 +264,7 @@ class GamePageState extends State<GamePage> {
                           setState(() {
                             chosenLetter.add(e);
                             //The letter guessed is wrong
-                            if(!testWord.split('').contains(e.toUpperCase())) {
+                            if(!myNewWord.split('').contains(e.toUpperCase())) {
                               lives++;
                             }
                             //Defeat condition
@@ -161,9 +272,9 @@ class GamePageState extends State<GamePage> {
                               showDialog(context: context, builder: (BuildContext context) => youLose());
                             }
                             //Victory condition
-                            if(testWord.toUpperCase().contains(e.toUpperCase())) {
+                            if(myNewWord.toUpperCase().contains(e.toUpperCase())) {
                               completeWord.add(e);
-                              if (completeWord.toSet().containsAll(testWord.split('').toSet())) {
+                              if (completeWord.toSet().containsAll(myNewWord.split('').toSet())) {
                                 showDialog(context: context, builder: (BuildContext context) => youWin());
                               }
                             }
@@ -201,15 +312,18 @@ class GamePageState extends State<GamePage> {
       content: Column (
           mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <Widget>[
-          Text("You Lose")
+        children: <Widget>[
+          const Text("You Lose"),
+          Text("The word was: ${_currentWord} "),
+          Text("Definition: \n ${_currentWordShortdef}")
         ],
         ),
       actions: <Widget>[
         //Button that takes the user to a new game of Hangman
         RawMaterialButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Hangman(),));
+              _reset();
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>const Hangman()));
               },
             child: const Text("New Game",
               style: TextStyle(
@@ -222,7 +336,9 @@ class GamePageState extends State<GamePage> {
         //Button that takes the user to the home page
         RawMaterialButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => HomePage(),));
+            _reset();
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+            initState();
           },
           child: const Text("Home Page",
             style: TextStyle(
@@ -245,15 +361,18 @@ class GamePageState extends State<GamePage> {
       content: Column (
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <Widget>[
-          Text("You Win")
+        children: <Widget>[
+          const Text("You Win"),
+          Text("The word was: ${_currentWord.toLowerCase()} "),
+          Text("Definition: \n ${_currentWordShortdef}")
         ],
       ),
       actions: <Widget>[
         //Button that takes the user to a new game of Hangman
         RawMaterialButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Hangman(),));
+            _reset();
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Hangman()));
           },
           child: const Text("New Game",
             style: TextStyle(
@@ -266,7 +385,9 @@ class GamePageState extends State<GamePage> {
         //Button that takes the user to the home page
         RawMaterialButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => HomePage(),));
+            _reset();
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+            initState();
           },
           child: const Text("Home Page",
             style: TextStyle(

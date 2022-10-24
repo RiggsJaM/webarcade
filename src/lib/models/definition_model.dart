@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
+
 List<Record>  recordFromJson(String  str) => List<Record>.from(jsonDecode(str).map((x) => Record.fromJson(x)));
 
 String  recordToJson(List<Record>  data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
@@ -74,6 +76,24 @@ class Def {
     "vd": vd == null ? null : vd,
     "sseq": List<dynamic>.from(sseq!.map((x) => List<dynamic>.from(x.map((x) => List<dynamic>.from(x.map((x) => x)))))),
   };
+
+
+  String makeString()
+  {
+
+    //String response = sseq!.first!.first!.elementAt(1)!.elementAt(1)!.elementAt(0)!.elementAt(1)!.toString();
+    debugPrint("In makeString function: Printing... \n\n");
+    var temp = sseq!.first!.first; debugPrint("${temp}, \n");
+    var temp2 = temp[1]; debugPrint("${temp2}, \n");
+    var temp3 = temp2; debugPrint("${temp3}, \n"); // Produces null...
+    var temp4 = temp3[0]; debugPrint("${temp4}, \n");
+    var temp5 = temp4[1]; debugPrint("${temp5}, \n");
+    String tempS = temp5.toString(); debugPrint("${tempS}, \n");
+
+    debugPrint("\n\n");
+    return tempS;
+  }
+
 }
 
 class SseqClass {
@@ -114,6 +134,14 @@ class DtClass {
   Map<String , dynamic>  toJson() => {
     "t": t,
   };
+
+
+  String makeString()
+  {
+
+
+    return t.toString();
+  }
 }
 
 enum SseqEnum { SENSE }
