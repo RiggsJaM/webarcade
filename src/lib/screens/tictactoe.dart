@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:retro_arcade/main.dart';
+import 'package:retro_arcade/components/commondrawer.dart';
+
 
 class TicTacToe extends StatelessWidget{
   @override
@@ -34,7 +36,16 @@ class _HomePageState extends State<HomePage>{
         backgroundColor: Colors.black,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
+          centerTitle:true,
+          title: const Text(
+            'Tic-Tac-Toe',
+            style: TextStyle(
+              fontSize:20,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
         ),
+        drawer: CommonDrawer(),
         body: Expanded(
             flex: 4,
             child: GridView.builder(
