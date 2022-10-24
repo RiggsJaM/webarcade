@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage>{
 
   List<String> displayElement = ['', '', '', '', '', '', '', '', ''];
   int currentElements = 0;
+  bool draw = true;
 
 
   @override
@@ -94,47 +95,57 @@ class _HomePageState extends State<HomePage>{
     if (displayElement[0] == displayElement[1] &&
         displayElement[0] == displayElement[2] &&
         displayElement[0] != '') {
+      currentElements = 0;
       winBox(displayElement[0]);
     }
-    if (displayElement[3] == displayElement[4] &&
+    else if (displayElement[3] == displayElement[4] &&
         displayElement[3] == displayElement[5] &&
         displayElement[3] != '') {
+      currentElements = 0;
       winBox(displayElement[3]);
     }
-    if (displayElement[6] == displayElement[7] &&
+    else if (displayElement[6] == displayElement[7] &&
         displayElement[6] == displayElement[8] &&
         displayElement[6] != '') {
+      currentElements = 0;
       winBox(displayElement[6]);
     }
 
     // Checking Column
-    if (displayElement[0] == displayElement[3] &&
+    else if (displayElement[0] == displayElement[3] &&
         displayElement[0] == displayElement[6] &&
         displayElement[0] != '') {
+      currentElements = 0;
       winBox(displayElement[0]);
     }
-    if (displayElement[1] == displayElement[4] &&
+    else if (displayElement[1] == displayElement[4] &&
         displayElement[1] == displayElement[7] &&
         displayElement[1] != '') {
+      currentElements = 0;
       winBox(displayElement[1]);
     }
-    if (displayElement[2] == displayElement[5] &&
+    else if (displayElement[2] == displayElement[5] &&
         displayElement[2] == displayElement[8] &&
         displayElement[2] != '') {
+      currentElements = 0;
       winBox(displayElement[2]);
     }
 
     // Checking Diagonal
-    if (displayElement[0] == displayElement[4] &&
+    else if (displayElement[0] == displayElement[4] &&
         displayElement[0] == displayElement[8] &&
         displayElement[0] != '') {
+      currentElements = 0;
       winBox(displayElement[0]);
     }
-    if (displayElement[2] == displayElement[4] &&
+    else if (displayElement[2] == displayElement[4] &&
         displayElement[2] == displayElement[6] &&
         displayElement[2] != '') {
+      currentElements = 0;
       winBox(displayElement[2]);
-    } else if (currentElements == 9) {
+    }
+    else if (currentElements == 9) {
+      currentElements = 0;
       drawBox();
     }
   }
