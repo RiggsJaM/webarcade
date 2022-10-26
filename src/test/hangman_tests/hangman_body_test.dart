@@ -17,7 +17,6 @@ void main() {
     expect(find.text('Z'), findsOneWidget);
   });
 
-  ///THESE TESTS ARE EXTREMELY TEMPORARY, THEY WILL ONLY WORK WITH THE WORD TO GUESS BEING TEST
   testWidgets("Gallows shows up on the page", (WidgetTester tester) async {
       await tester.pumpWidget(new HangmanDebug());
       await tester.pumpAndSettle();
