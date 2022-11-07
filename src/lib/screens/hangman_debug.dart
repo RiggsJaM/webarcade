@@ -113,41 +113,6 @@ class GamePageDebugState extends State<GamePageDebug> {
                 padding: EdgeInsets.all(10.0),
                 children: letters.map((e) {
                   //Button that holds the functionality that determines if a guess is right or wrong, and whether the user has won or lost
-                  // return ElevatedButton (
-                  //   onPressed: chosenLetter.contains(e) ? null : () {
-                  //     setState(() {
-                  //       chosenLetter.add(e);
-                  //       //The letter guessed is wrong
-                  //       if(!testWord.split('').contains(e.toUpperCase())) {
-                  //         lives++;
-                  //       }
-                  //       //Defeat condition
-                  //       if (lives >= 6) {
-                  //         showDialog(context: context, builder: (BuildContext context) => youLose());
-                  //       }
-                  //       //Victory condition
-                  //       if(testWord.toUpperCase().contains(e.toUpperCase())) {
-                  //         completeWord.add(e);
-                  //         if (completeWord.toSet().containsAll(testWord.split('').toSet())) {
-                  //           showDialog(context: context, builder: (BuildContext context) => youWin());
-                  //         }
-                  //       }
-                  //     });
-                  //   },
-                  //     //Specifying how the keyboard "keys" will look and to change their color when pressed
-                  //     style: ElevatedButton.styleFrom(
-                  //       backgroundColor: chosenLetter.contains(e) ? Colors.black : Colors.purpleAccent,
-                  //         shape: RoundedRectangleBorder(
-                  //           borderRadius: BorderRadius.circular(5.0),
-                  //     )),
-                  //     child: Text (
-                  //       e,
-                  //       style: const TextStyle (
-                  //         color: Colors.white,
-                  //         fontSize: 30,
-                  //         fontWeight: FontWeight.w500,
-                  //       ),
-                  //   ));
                   return RawMaterialButton(
                     onPressed: chosenLetter.contains(e) ? null : () {
                       setState(() {
