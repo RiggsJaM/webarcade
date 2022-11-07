@@ -107,10 +107,60 @@ flutter:
     - assets/images/NicNacNoe.png
     - assets/images/BuilderPattern.png
     - assets/images/RA_Homepage.png
-
     - assets/json/flutterDef.json
     - assets/json/onomatopoeiaDef.json
     - assets/json/radiatorDef.json
-
+    - assets/images/Clubs/Ace_Clubs.png
+    - assets/images/Clubs/2_Clubs.png
+    - assets/images/Clubs/3_Clubs.png
+    - assets/images/Clubs/4_Clubs.png
+    - assets/images/Clubs/5_Clubs.png
+    - assets/images/Clubs/6_Clubs.png
+    - assets/images/Clubs/7_Clubs.png
+    - assets/images/Clubs/8_Clubs.png
+    - assets/images/Clubs/9_Clubs.png
+    - assets/images/Clubs/10_Clubs.png
+    - assets/images/Clubs/Jack_Clubs.png
+    - assets/images/Clubs/Queen_Clubs.png
+    - assets/images/Clubs/King_Clubs.png
+    - assets/images/Diamonds/Ace_Diamonds.png
+    - assets/images/Diamonds/2_Diamonds.png
+    - assets/images/Diamonds/3_Diamonds.png
+    - assets/images/Diamonds/4_Diamonds.png
+    - assets/images/Diamonds/5_Diamonds.png
+    - assets/images/Diamonds/6_Diamonds.png
+    - assets/images/Diamonds/7_Diamonds.png
+    - assets/images/Diamonds/8_Diamonds.png
+    - assets/images/Diamonds/9_Diamonds.png
+    - assets/images/Diamonds/10_Diamonds.png
+    - assets/images/Diamonds/Jack_Diamonds.png
+    - assets/images/Diamonds/Queen_Diamonds.png
+    - assets/images/Diamonds/King_Diamonds.png
+    - assets/images/Hearts/Ace_Hearts.png
+    - assets/images/Hearts/2_Hearts.png
+    - assets/images/Hearts/3_Hearts.png
+    - assets/images/Hearts/4_Hearts.png
+    - assets/images/Hearts/5_Hearts.png
+    - assets/images/Hearts/6_Hearts.png
+    - assets/images/Hearts/7_Hearts.png
+    - assets/images/Hearts/8_Hearts.png
+    - assets/images/Hearts/9_Hearts.png
+    - assets/images/Hearts/10_Hearts.png
+    - assets/images/Hearts/Jack_Hearts.png
+    - assets/images/Hearts/Queen_Hearts.png
+    - assets/images/Hearts/King_Hearts.png
+    - assets/images/Spades/Ace_Spades.png
+    - assets/images/Spades/2_Spades.png
+    - assets/images/Spades/3_Spades.png
+    - assets/images/Spades/4_Spades.png
+    - assets/images/Spades/5_Spades.png
+    - assets/images/Spades/6_Spades.png
+    - assets/images/Spades/7_Spades.png
+    - assets/images/Spades/8_Spades.png
+    - assets/images/Spades/9_Spades.png
+    - assets/images/Spades/10_Spades.png
+    - assets/images/Spades/Jack_Spades.png
+    - assets/images/Spades/Queen_Spades.png
+    - assets/images/Spades/King_Spades.png
 
 
