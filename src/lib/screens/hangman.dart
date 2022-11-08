@@ -223,7 +223,6 @@ class GamePageState extends State<GamePage> {
                     crossAxisSpacing: 6.0,
                     padding: EdgeInsets.all(10.0),
                     children: letters.map((e) {
-                      //Button that holds the functionality that determines if a guess is right or wrong, and whether the user has won or lost
                       return RawMaterialButton(
                         onPressed: chosenLetter.contains(e) ? null : () {
                           setState(() {

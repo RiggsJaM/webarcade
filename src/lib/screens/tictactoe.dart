@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:retro_arcade/main.dart';
 import 'package:retro_arcade/components/commondrawer.dart';
 
-
+/// Class that defines the build widget that is the base page of Tic-Tac-Toe
 class TicTacToe extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -15,11 +15,13 @@ class TicTacToe extends StatelessWidget{
   }
 }
 
+/// Creates the page that the Tic-Tac-Toe game is on
 class HomePage extends StatefulWidget{
   @override
   _HomePageState createState() => _HomePageState();
 }
 
+/// Class that actually has the game in it
 class _HomePageState extends State<HomePage>{
   bool yourTurn = true;
 
@@ -27,7 +29,7 @@ class _HomePageState extends State<HomePage>{
   int currentElements = 0;
   bool draw = true;
 
-
+/// This is the actual widget for everything to do with Tic-Tac-Toe
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -48,6 +50,7 @@ class _HomePageState extends State<HomePage>{
         drawer: CommonDrawer(),
         body: Expanded(
             flex: 4,
+            // This makes the actual board for the game
             child: GridView.builder(
                 itemCount: 9,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -76,6 +79,8 @@ class _HomePageState extends State<HomePage>{
         )
     );
   }
+
+  /// This is the method to check which space you type
   void tapped(int index){
     setState(() {
       if(yourTurn && displayElement[index] == ''){
@@ -91,6 +96,8 @@ class _HomePageState extends State<HomePage>{
       _isWinner();
     });
   }
+
+  /// Method that checks if you win and who wins, or draws
   void _isWinner(){
     if (displayElement[0] == displayElement[1] &&
         displayElement[0] == displayElement[2] &&
@@ -150,13 +157,14 @@ class _HomePageState extends State<HomePage>{
     }
   }
 
+  /// This pops up the actual dialog box for winning
   void winBox(String winner){
     showDialog(
         barrierDismissible: false,
         context: context,
         builder: (BuildContext context){
           return AlertDialog(
-            title: Text(" $winner is winner!"),
+            title: Text("$winner is winner!"),
             actions: <Widget>[
               TextButton(
                 child: const Text("Play again"),
@@ -171,6 +179,7 @@ class _HomePageState extends State<HomePage>{
     );
   }
 
+  /// This displays the draw box in case of a draw
   void drawBox(){
     showDialog(
         context: context,
@@ -191,6 +200,7 @@ class _HomePageState extends State<HomePage>{
     );
   }
 
+  /// This just clears the grid for Tic-Tac-Toe
   void clearBox(){
     setState(() {
       for (int i = 0; i < 9; i++) {
