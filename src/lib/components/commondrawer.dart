@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:retro_arcade/screens/hangman.dart';
 import 'package:retro_arcade/screens/solitaire.dart';
-import 'package:retro_arcade/screens/tests_page.dart';
 import 'package:retro_arcade/screens/tictactoe.dart';
 import 'package:retro_arcade/screens/instructions.dart';
 
 
 import '../main.dart';
 
+///Class defining the build widget that is the base of the drawer
 class CommonDrawer extends StatefulWidget {
   const CommonDrawer({
     Key? key,
@@ -17,8 +17,10 @@ class CommonDrawer extends StatefulWidget {
   CommonDrawerState createState() => CommonDrawerState();
 }
 
+///Class that contains the UI of the drawer
 class CommonDrawerState extends State<CommonDrawer>{
   @override
+  ///Widget that holds the setup of the drawer
   Widget build(BuildContext context){
     return Drawer(
       child: ListView(

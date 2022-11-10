@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:retro_arcade/screens/hangman.dart';
 import 'package:retro_arcade/screens/solitaire.dart';
-import 'package:retro_arcade/screens/tests_page.dart';
 import 'package:retro_arcade/screens/tictactoe.dart';
 import 'package:retro_arcade/components/commondrawer.dart';
 
@@ -9,6 +8,7 @@ void main() {
   runApp(MyApp());
 }
 
+///Class defining the build widget that is the base of the home page
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -23,12 +23,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
+///Class that creates the page that the home page is on
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
+///Class that contains the main page UI
 class _HomePageState extends State<HomePage> {
+
   final ScrollController _scrollController = ScrollController();
   double _scrollPosition = 0;
   double _opacity = 0;
@@ -39,12 +42,13 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  ///Function that allows you to be able to scroll if needed on this screen
   @override
   void initState() {
     _scrollController.addListener(_scrollListener);
     super.initState();
   }
-
+  ///Widget that holds the setup of the home page
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
