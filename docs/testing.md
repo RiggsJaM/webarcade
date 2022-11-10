@@ -8,7 +8,7 @@ For example, when running multiple tests in a file (especially widget tests) Flu
 
 This behavior is not guaranteed, and sometimes the tests will run fine, despite being on the same instance, and sometimes, they will not.
 
-The easiest way to get around this issue is to create a separate (filename)_test.dart file and have 1 test in that file, or multiple if they will only run being 1 after the other. It will basically be trial and error to determine what tests will need to be isolated to theirn own file and which can be run together.
+The easiest way to get around this issue is to create a separate (filename)_test.dart file and have 1 test in that file, or multiple if they will only run being 1 after the other. It will basically be trial and error to determine what tests will need to be isolated to their own file and which can be run together.
 
 ## Manual Testing
 
