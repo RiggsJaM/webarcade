@@ -113,7 +113,7 @@ class SolitaireGamePageState extends State<SolitaireGamePage> {
 
   void checkWin(){
     if(Total(playerHand) == 21){
-      win();
+      win(Total(playerHand), Total(dealerHand));
     }
     if(Total(playerHand) == 21 && Total(dealerHand) == 21){
       push();
@@ -124,7 +124,7 @@ class SolitaireGamePageState extends State<SolitaireGamePage> {
     else{
       if(Total(playerHand) < 21 && Total(dealerHand) < 21){
         if(Total(playerHand) > Total(dealerHand)){
-          win();
+          win(Total(playerHand), Total(dealerHand));
         }
         else if(Total(playerHand) < Total(dealerHand)){
           lose();
@@ -138,16 +138,33 @@ class SolitaireGamePageState extends State<SolitaireGamePage> {
       }
       if(Total(dealerHand) > 21 && Total(playerHand) <= 21){
         if(Total(playerHand) == 21){
-          win();
+          win(Total(playerHand), Total(dealerHand));
         }
         else{
-          win();
+          win(Total(playerHand), Total(dealerHand));
         }
       }
     }
   }
-  void win(){
-
+  void win(int score, int oppScore){
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+            title: Text("You are the winner!"),
+            actions: <Widget>[
+              TextButton(
+                child: const Text("Play again"),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                  clearTable();
+                },
+              )
+            ],
+          );
+        }
+    );
   }
 
   void lose(){
@@ -156,5 +173,12 @@ class SolitaireGamePageState extends State<SolitaireGamePage> {
 
   void push(){
 
+  }
+
+  void clearTable(){
+    setState(() {
+      playerHand = [];
+      dealerHand = [];
+    });
   }
 }
