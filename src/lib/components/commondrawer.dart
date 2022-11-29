@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:retro_arcade/screens/hangman.dart';
-import 'package:retro_arcade/screens/solitaire.dart';
+import 'package:retro_arcade/screens/blackjack.dart';
 import 'package:retro_arcade/screens/tictactoe.dart';
 import 'package:retro_arcade/screens/instructions.dart';
 
@@ -73,9 +73,9 @@ class CommonDrawerState extends State<CommonDrawer>{
             },
           ),
           ListTile (
-            title: const Text("Solitaire"),
+            title: const Text("Blackjack"),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Solitaire(),));
+              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Blackjack(),));
             },
           ),
         ],
