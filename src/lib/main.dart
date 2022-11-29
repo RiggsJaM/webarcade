@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:retro_arcade/screens/hangman.dart';
-import 'package:retro_arcade/screens/solitaire.dart';
+import 'package:retro_arcade/screens/blackjack.dart';
 import 'package:retro_arcade/screens/tictactoe.dart';
 import 'package:retro_arcade/components/commondrawer.dart';
 
@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 0.0),
                           child: InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Solitaire(),));
+                              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Blackjack(),));
                             },
                             child: SizedBox(
                               height: screenSize.width / 6,
@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                             top: 10.0,
                           ),
                           child: const Text(
-                            "Solitaire",
+                            "Blackjack",
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w500,

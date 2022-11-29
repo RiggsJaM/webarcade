@@ -120,7 +120,7 @@ class GameInstructions extends State<Instructions> {
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                  child: Text("Solitaire",
+                  child: Text("Blackjack",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 40,
