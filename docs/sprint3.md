@@ -1,5 +1,5 @@
 # Sprint Ceremony Minutes
-  
+
 Date: 2022-10-22
 
 Members present:
@@ -8,7 +8,7 @@ Members present:
 * Jacob Riggs
 * John Hatton
 * Nicholas Gathof
-  
+
 ## Demo
 
 This sprint, we completed:
@@ -45,4 +45,3 @@ Points | Story
 2      | Instructions Page
 4      | Unit Testing Backend
 2      | Fixing Tic-Tac-Toe
-
