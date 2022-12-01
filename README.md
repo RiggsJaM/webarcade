@@ -4,7 +4,7 @@
 ![RA_Homepage](src/assets/images/RA_Homepage.png)
 
 ## Description
-This project is a web app that plays and displays different types of classic game such as Solitaire, Hangman, Tic-Tac-Toe etc. Even though this project 
+This project is a web app that plays and displays different types of classic games such as Blackjack, Hangman, Tic-Tac-Toe etc. Even though this project 
 is a web app, it can only be opened in Chrome and Edge. You CANNOT open this in safari or any other browser. 
 
 &nbsp; 
