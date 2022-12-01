@@ -26,7 +26,7 @@ class BlackjackGamePage extends StatefulWidget {
 class BlackjackGamePageState extends State<BlackjackGamePage> {
   bool isVisible = false;
 
-  final List<playingCard> cardList = [playingCard("assets/images/Clubs/Ace_Clubs.png", "Ace_Clubs", 11),
+  List<playingCard> cardList = [playingCard("assets/images/Clubs/Ace_Clubs.png", "Ace_Clubs", 11),
     playingCard("assets/images/Clubs/2_Clubs.png", "2 of Clubs", 2),
     playingCard("assets/images/Clubs/3_Clubs.png", "3 of Clubs", 3),
     playingCard("assets/images/Clubs/4_Clubs.png", "4 of Clubs", 4),
@@ -81,7 +81,7 @@ class BlackjackGamePageState extends State<BlackjackGamePage> {
 
   List<playingCard> playerHand = [];
   List<playingCard> dealerHand = [];
-  int total = 0;
+  //int total = 0;
   int stand = 2;
 
   /// This is the actual widget for everything to do with Blackjack UI
@@ -133,10 +133,6 @@ class BlackjackGamePageState extends State<BlackjackGamePage> {
                                 addToPlayer(playerHand);
                                 displayCard(playerHand.length - 1, playerHand);
                               }
-                              if (dealerHand.length < 5) {
-                                addToDealer(dealerHand);
-                                displayCard(dealerHand.length - 1, dealerHand);
-                              }
                             });
                           }
                       ),
@@ -146,6 +142,10 @@ class BlackjackGamePageState extends State<BlackjackGamePage> {
                         child: TextButton(
                           child: const Text("Stand"),
                           onPressed: () {
+                            if (dealerHand.length < 5) {
+                              addToDealer(dealerHand);
+                              displayCard(dealerHand.length - 1, dealerHand);
+                            }
                             stand--;
                             checkWin();
                           },
@@ -211,12 +211,11 @@ class BlackjackGamePageState extends State<BlackjackGamePage> {
 
   ///Picks random card from a deck of cards
   playingCard dealCard(List<playingCard> hand){
-    playingCard turn;
     int cardIndex = Random().nextInt(51);
     while(hand.contains(cardList.elementAt(cardIndex))){
       cardIndex = Random().nextInt(51);
     }
-    return turn = cardList.elementAt(cardIndex);
+    return cardList.elementAt(cardIndex);
   }
 
   ///Adds the random card chosen from dealCard to the players hand
@@ -247,16 +246,19 @@ class BlackjackGamePageState extends State<BlackjackGamePage> {
 
   ///Counts the points of the provided hand
   int Total(List<playingCard> hand){
-    total = 0;
-    for(int i = 0; i < hand.length; i++){
-      total += hand[i].points;
-      if(hand[i].points == 11 && total > 21){
-        total -= 10;
+    int total = 0;
+      for(int i = 0; i < hand.length; i++){
+        total += hand[i].points;
+        if(total >= 21){
+          for(int j = 0; j < hand.length; j++){
+            if(hand[j].points == 11) {
+              total -= 10;
+            }
+          }
+        }
       }
-    }
-    return total;
+      return total;
   }
-
   ///Decides when the dealers second card should be revealed
   Widget reveal(hand){
     if(hand.length == 2) {
@@ -385,10 +387,7 @@ class BlackjackGamePageState extends State<BlackjackGamePage> {
 
   ///Ends the game if either the dealer or the player bust
   void bust() {
-    if (Total(playerHand) > 21 && Total(dealerHand) > 21) {
-      checkWin();
-    }
-    else if (Total(playerHand) > 21 || Total(dealerHand) > 21) {
+    if (Total(playerHand) > 21 || Total(dealerHand) > 21) {
       checkWin();
     }
   }
@@ -409,6 +408,6 @@ class BlackjackGamePageState extends State<BlackjackGamePage> {
 class playingCard{
   final String image;
   final String name;
-  final int points;
+  int points;
   playingCard(this.image, this.name, this.points);
 }
