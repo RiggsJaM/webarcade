@@ -20,4 +20,3 @@ way that is both appealing to young technically skilled users and easy to use fo
 technically skilled users.
 
 The main language we will be developing the web app in is dart with flutter framework.
-    

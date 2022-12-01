@@ -1,12 +1,12 @@
 # Sprint Ceremony Minutes
-  
+
 Date: 2022-10-27
 Members present:
 * Elizabeth Mittel
 * Nicholas Gathof
 * John Hatton
 * Jacob Riggs
-  
+
 ## Demo
 This sprint, we completed:
 * Hangman Testing
@@ -33,7 +33,7 @@ retrospective)
 * Check before submitting pull request
 
 ## Planning
-(This section can and should be completed in your GitHub projects, but please 
+(This section can and should be completed in your GitHub projects, but please
 summarize here)
 Points | Story
 -------|--------

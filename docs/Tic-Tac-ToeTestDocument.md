@@ -12,4 +12,4 @@ Draw testing
 
 1. I went through adn made sure that if they drew it would actually show the draw dialog box
 2. Then I went and made sure that if someone wins on the last possible move that it would not draw it
-    would win instead
+   would win instead
