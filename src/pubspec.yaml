@@ -162,5 +162,6 @@ flutter:
     - assets/images/Spades/Jack_Spades.png
     - assets/images/Spades/Queen_Spades.png
     - assets/images/Spades/King_Spades.png
+    - assets/images/Card_Back.png
 
 
