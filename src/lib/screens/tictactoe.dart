@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:retro_arcade/main.dart';
 import 'package:retro_arcade/components/commondrawer.dart';
 
 /// Class that defines the build widget that is the base page of Tic-Tac-Toe
