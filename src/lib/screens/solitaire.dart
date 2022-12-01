@@ -70,9 +70,7 @@ class SolitaireGamePageState extends State<SolitaireGamePage> {
                 fontSize:20,
                 fontWeight: FontWeight.w400,
               )
-
           )
-
       ),
       drawer: const CommonDrawer(),
       body: SingleChildScrollView(
@@ -86,8 +84,8 @@ class SolitaireGamePageState extends State<SolitaireGamePage> {
     );
   }
   void dealCard(List<int> turn){
-    int card = Random(11) as int;
-    card += 1;
+    int card = Random(13) as int;
+    card += 2;
     turn.add(card);
   }
 
@@ -152,7 +150,7 @@ class SolitaireGamePageState extends State<SolitaireGamePage> {
         context: context,
         builder: (BuildContext context){
           return AlertDialog(
-            title: Text("You are the winner!"),
+            title: const Text("You are the winner!"),
             actions: <Widget>[
               TextButton(
                 child: const Text("Play again"),
@@ -168,11 +166,45 @@ class SolitaireGamePageState extends State<SolitaireGamePage> {
   }
 
   void lose(){
-
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+            title: const Text("The dealer has won!"),
+            actions: <Widget>[
+              TextButton(
+                child: const Text("Play again"),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                  clearTable();
+                },
+              )
+            ],
+          );
+        }
+    );
   }
 
   void push(){
-
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+            title: const Text("It was push!"),
+            actions: <Widget>[
+              TextButton(
+                child: const Text("Play again"),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                  clearTable();
+                },
+              )
+            ],
+          );
+        }
+    );
   }
 
   void clearTable(){
