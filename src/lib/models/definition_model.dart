@@ -2,10 +2,16 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 
+/// The [recordFromJson] function takes a JSON string as parameter input, and
+/// returns a List of Records representing the list of records from the JSON.
 List<Record>  recordFromJson(String  str) => List<Record>.from(jsonDecode(str).map((x) => Record.fromJson(x)));
 
+/// The [recordToJson] function takes a List of Records [data], and returns
+/// a String which represents the JSON conversion of a list of records
 String  recordToJson(List<Record>  data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
+/// The [Record] class is a complex data structure which represents each
+/// individual definition, within the Merriam-Websters Collegiate Dictionary.
 class Record {
   Record({
     required this.meta,
@@ -31,6 +37,8 @@ class Record {
   String? date;
   List<String >? shortdef;
 
+  /// The [Record.fromJson] function takes a Map<String,dynamic> which represents
+  /// the [json], and it returns a factory of Records.
   factory Record.fromJson(Map<String , dynamic>  json) => Record(
     meta: Meta.fromJson(json["meta"]),
     hom: json["hom"] == null ? null : json["hom"],
@@ -44,6 +52,8 @@ class Record {
     shortdef: List<String >.from(json["shortdef"].map((x) => x)),
   );
 
+  /// The [toJson] function is a member function of the Record class, and returns
+  /// a Map<String, dynamic> representing the JSON form of the Record.
   Map<String , dynamic>  toJson() => {
     "meta": meta!.toJson(),
     "hom": hom == null ? null : hom,
@@ -58,7 +68,10 @@ class Record {
   };
 }
 
+/// The [Def] class represents the internal definition class, which is an
+/// member attribute of the Record class.
 class Def {
+  /// The [Def] constructor sets vd and sseq, internal members of the Def class.
   Def({
     this.vd,
     this.sseq,
@@ -67,17 +80,22 @@ class Def {
   String? vd;
   List<List<List<dynamic> > >? sseq;
 
+  /// The [fromJson] function takes a Map<String,dynamic> [json], which  then
+  /// returns a factory of Definitions.
   factory Def.fromJson(Map<String , dynamic>  json) => Def(
     vd: json["vd"] == null ? null : json["vd"],
     sseq: List<List<List<dynamic> > >.from(json["sseq"].map((x) => List<List<dynamic> >.from(x.map((x) => List<dynamic>.from(x.map((x) => x)))))),
   );
 
+  /// The [toJson] function is a member function of the Def class, and returns
+  /// a Map<String, dynamic> representing the JSON form of the Record.
   Map<String , dynamic>  toJson() => {
     "vd": vd == null ? null : vd,
     "sseq": List<dynamic>.from(sseq!.map((x) => List<dynamic>.from(x.map((x) => List<dynamic>.from(x.map((x) => x)))))),
   };
 
-
+  /// The [makeString] function takes the current word contained by the Record,
+  /// and returns its String representation.
   String makeString()
   {
 
@@ -96,6 +114,8 @@ class Def {
 
 }
 
+/// The [SseqClass] represents the internal Sseq of the Record, which is the
+/// sense sequence, or the part of speech.
 class SseqClass {
   SseqClass({
     this.sn,
@@ -107,12 +127,16 @@ class SseqClass {
   List<List<dynamic> >? dt;
   List<String >? sls;
 
+  /// The [fromJson] function takes a Map<String,dynamic> [json], which  then
+  /// returns a factory of Sseq.
   factory SseqClass.fromJson(Map<String , dynamic>  json) => SseqClass(
     sn: json["sn"] == null ? null : json["sn"],
     dt: List<List<dynamic> >.from(json["dt"].map((x) => List<dynamic>.from(x.map((x) => x)))),
     sls: json["sls"] == null ? null : List<String >.from(json["sls"].map((x) => x)),
   );
 
+  /// The [toJson] function is a member function of the Def class, and returns
+  /// a Map<String, dynamic> representing the JSON form of the Sseq.
   Map<String , dynamic>  toJson() => {
     "sn": sn == null ? null : sn,
     "dt": List<dynamic>.from(dt!.map((x) => List<dynamic>.from(x.map((x) => x)))),
@@ -120,6 +144,9 @@ class SseqClass {
   };
 }
 
+/// The [DtClass] class represents the internal Dt class, which is an
+/// member attribute of the Record class, and contains information about
+/// the defining text.
 class DtClass {
   DtClass({
     this.t,
@@ -127,15 +154,20 @@ class DtClass {
 
   String? t;
 
+  /// The [fromJson] function takes a Map<String,dynamic> [json], which  then
+  /// returns a factory of Dt.
   factory DtClass.fromJson(Map<String , dynamic>  json) => DtClass(
     t: json["t"],
   );
 
+  /// The [toJson] function is a member function of the Dt class, and returns
+  /// a Map<String, dynamic> representing the JSON form of the defining text.
   Map<String , dynamic>  toJson() => {
     "t": t,
   };
 
-
+  /// The [makeString] function takes the current defining text contained by the Record,
+  /// and returns its String representation.
   String makeString()
   {
 
@@ -150,6 +182,9 @@ final sseqEnumValues = EnumValues({
   "sense": SseqEnum.SENSE
 });
 
+/// The [Hwi] class represents the internal Hwi class, which is an
+/// member attribute of the Record class, and contains information about
+/// the Headword.
 class Hwi {
   Hwi({
     this.hw,
@@ -159,17 +194,24 @@ class Hwi {
   String? hw;
   List<Pr >? prs;
 
+  /// The [fromJson] function takes a Map<String,dynamic> [json], which  then
+  /// returns a factory of [Hwi].
   factory Hwi.fromJson(Map<String , dynamic>  json) => Hwi(
     hw: json["hw"],
     prs: json["prs"] == null ? null : List<Pr >.from(json["prs"].map((x) => Pr.fromJson(x))),
   );
 
+  /// The [toJson] function is a member function of the [Hwi] class, and returns
+  /// a Map<String, dynamic> representing the JSON form of the Headword.
   Map<String , dynamic>  toJson() => {
     "hw": hw,
     "prs": prs == null ? null : List<dynamic>.from(prs!.map((x) => x.toJson())),
   };
 }
 
+/// The [Pr] class represents the internal [Pr] class, which is an
+/// member attribute of the Record class, and contains information about
+/// the Pronunciation.
 class Pr {
   Pr({
     this.mw,
@@ -179,17 +221,24 @@ class Pr {
   String? mw;
   Sound? sound;
 
+  /// The [fromJson] function takes a Map<String,dynamic> [json], which  then
+  /// returns a factory of [Pr].
   factory Pr.fromJson(Map<String , dynamic>  json) => Pr(
     mw: json["mw"],
     sound: Sound.fromJson(json["sound"]),
   );
 
+  /// The [toJson] function is a member function of the [Pr] class, and returns
+  /// a Map<String, dynamic> representing the JSON form of the Headword.
   Map<String , dynamic>  toJson() => {
     "mw": mw,
     "sound": sound!.toJson(),
   };
 }
 
+/// The [Sound] class represents the internal [Sound] class, which is an
+/// member attribute of the Record class, and contains information about
+/// the Pronunciation.
 class Sound {
   Sound({
     this.audio,

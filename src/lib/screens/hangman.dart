@@ -61,7 +61,7 @@ class GamePageState extends State<GamePage> {
     return min + Random().nextInt(max - min);
   }
 
-  List<String> wordList = ["quilt","train","plant","river","snake","chair","vinyl","lamp","door","window","cow","ridge","cell","phone","meter","car","wheel","skate","cactus","bus","taxi","van","truck","chain","epoch","jail","handle","faucet","mirror","toilet","estate","shower","tile","brick","rug","sofa","love","seat","chest","box","ball","toy","cup","process","fork","knife","spoon","pan","book","oven"];
+  List<String> wordList = ["quilt","train","plant","river","snake","vinyl","lamp","door","window","cow","ridge","phone","meter","car","wheel","skate","cactus","bus","taxi","truck","chain","epoch","jail","handle","mirror","toilet","estate","shower","tile","brick","rug","sofa","love","seat","chest","box","ball","toy","cup","fork","knife","spoon","pan","book","oven"];
   // function to generate a random word from the list above
 
   /// Function to generate a random word, from the [word_list] above
