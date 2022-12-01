@@ -26,9 +26,9 @@ class BlackjackGamePageState extends State<BlackjackGamePage> {
   bool isVisible = false;
 
   List<int> Deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
-                    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
-                    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
-                    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
   final List<playingCard> cardList = [playingCard("assets/images/Clubs/Ace_Clubs.png", "Ace_Clubs", 11),
     playingCard("assets/images/Clubs/2_Clubs.png", "2_Clubs", 2),
@@ -94,86 +94,123 @@ class BlackjackGamePageState extends State<BlackjackGamePage> {
     var screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          centerTitle:true,
-          title: const Text(
-              'BlackJack',
-              style: TextStyle(
-                fontSize:20,
-                fontWeight: FontWeight.w400,
-              )
-          )
-      ),
-      drawer: const CommonDrawer(),
-      body:
+        extendBodyBehindAppBar: true,
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            centerTitle:true,
+            title: const Text(
+                'BlackJack',
+                style: TextStyle(
+                  fontSize:20,
+                  fontWeight: FontWeight.w400,
+                )
+            )
+        ),
+        drawer: const CommonDrawer(),
+        body:
         Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 100.0, 0.0, 0.0),
-              child: Row(children:[
-                TextButton(
-                  child: const Text("Start"),
-                  onPressed: (){
-                    setState(() {
-                      clearTable();
-                      for(int startingDeal = 0; startingDeal < 2; startingDeal++){
-                        addToPlayer(playerHand);
-                        displayCard(startingDeal, playerHand);
-                        addToDealer(dealerHand);
-                        displayCard(startingDeal, dealerHand);
-                      }
-                      isVisible = !isVisible;
-
-                    });
-
-                  },
-                ),
-                Visibility(
-                  visible: isVisible,
-                  child: TextButton (
-                      child: const Text("Hit"),
-                      onPressed: () {
-                        addToPlayer(playerHand);
-                        displayCard(playerHand.length--, playerHand);
-                      }
-                  ),
-                ),
-
-                Visibility(
-                  visible: isVisible,
-                  child: TextButton(
-                    child: const Text("Stand"),
-                    onPressed: (){
-                      stand--;
-                    },
+            children: [
+              Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 100.0, 0.0, 0.0),
+                  child: Row(children:[
+                    TextButton(
+                      child: const Text("Start"),
+                      onPressed: (){
+                        setState(() {
+                          clearTable();
+                          for(int startingDeal = 0; startingDeal < 2; startingDeal++){
+                            addToPlayer(playerHand);
+                            //displayCard(startingDeal, playerHand);
+                            addToDealer(dealerHand);
+                            //displayCard(startingDeal, dealerHand);
+                          }
+                          isVisible = !isVisible;
+                        });
+                      },
+                    ),
+                    Visibility(
+                      visible: isVisible,
+                      child: TextButton (
+                          child: const Text("Hit"),
+                          onPressed: () {
+                            setState(() {
+                              if (playerHand.length < 5) {
+                                addToPlayer(playerHand);
+                                displayCard(playerHand.length - 1, playerHand);
+                              }
+                              if (dealerHand.length < 5) {
+                                addToDealer(dealerHand);
+                                displayCard(dealerHand.length - 1, dealerHand);
+                              }
+                            });
+                          }
+                      ),
+                    ),
+                    Visibility(
+                        visible: isVisible,
+                        child: TextButton(
+                          child: const Text("Stand"),
+                          onPressed: () {
+                            stand--;
+                            checkWin();
+                          },
+                        )
+                    ),
+                  ]
                   )
-                ),
-
-              ]
-              )
-
-            ),
-            Row(
-              children: [
-                for(int i = 0; i < playerHand.length; i++)
-                  displayCard(i, playerHand)
-              ]
               ),
-          ]
+              Column(
+                children: [
+                  Row(
+                      children: [
+                        Container(
+                          alignment: Alignment.center,
+                          child: const Text(
+                            "Dealer",
+                            style: TextStyle(fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                        for(int i = 0; i < dealerHand.length; i++)
+                          displayCard(i, dealerHand)
+                      ]
+                  ),
+                  Row(
+                      children: [
+                        Container(
+                          alignment: Alignment.center,
+                          child: const Text(
+                            "Player",
+                            style: TextStyle(fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                        for(int i = 0; i < playerHand.length; i++)
+                          displayCard(i, playerHand)
+                      ]
+                  ),
+                ],
+              )
+              // Row(
+              //   children: [
+              //     for(int i = 0; i < playerHand.length; i++)
+              //       displayCard(i, playerHand)
+              //     ]
+              //   ),
+            ]
         )
     );
   }
+
   Widget displayCard(int cardNumber, List<playingCard> hand){
     return Visibility(
-      visible: true,
-      child:
+        visible: true,
+        child:
         Container(
-          height:150,
-          width:150,
-          child: Image.asset(hand[cardNumber].image)
+            height:150,
+            width:150,
+            child: Image.asset(hand[cardNumber].image)
         )
     );
   }
@@ -189,12 +226,14 @@ class BlackjackGamePageState extends State<BlackjackGamePage> {
 
   void addToPlayer(List<playingCard> hand){
     hand.add(dealCard(hand));
-    // displayCard(hand.length--, hand);
+    bust();
   }
 
   void addToDealer(List<playingCard> dealerHand){
     if(Total(dealerHand) <= 16){
       dealerHand.add(dealCard(dealerHand));
+      displayCard(dealerHand.length-1, dealerHand);
+      bust();
     }
     else{
       stand--;
@@ -257,7 +296,7 @@ class BlackjackGamePageState extends State<BlackjackGamePage> {
         //   win(Total(playerHand), Total(dealerHand));
         // }
         // else{
-          win(Total(playerHand), Total(dealerHand));
+        win(Total(playerHand), Total(dealerHand));
         //}
       }
     }
@@ -284,11 +323,54 @@ class BlackjackGamePageState extends State<BlackjackGamePage> {
   }
 
   void lose(){
-
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+            title: Text("You lose!"),
+            actions: <Widget>[
+              TextButton(
+                child: const Text("Play again"),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                  clearTable();
+                },
+              )
+            ],
+          );
+        }
+    );
   }
 
   void push(){
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+            title: Text("You pushed!"),
+            actions: <Widget>[
+              TextButton(
+                child: const Text("Play again"),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                  clearTable();
+                },
+              )
+            ],
+          );
+        }
+    );
+  }
 
+  void bust() {
+    if (Total(playerHand) > 21 && Total(dealerHand) > 21) {
+      checkWin();
+    }
+    else if (Total(playerHand) > 21 || Total(dealerHand) > 21) {
+      checkWin();
+    }
   }
 
   void clearTable(){
@@ -296,6 +378,7 @@ class BlackjackGamePageState extends State<BlackjackGamePage> {
       playerHand = [];
       dealerHand = [];
       stand = 2;
+      isVisible = false;
     });
   }
 
