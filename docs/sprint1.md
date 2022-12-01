@@ -1,5 +1,5 @@
 # Sprint Ceremony Minutes
-  
+
 Date: 2022-09-15
 
 Members present:
@@ -8,7 +8,7 @@ Members present:
 * Jacob Riggs
 * Nicholas Gathof
 * John Hatton
-  
+
 ## Demo
 
 This sprint, we completed:

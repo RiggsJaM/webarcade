@@ -4,7 +4,7 @@ Section Links:
 
 * [Introduction](#introduction)
 * [Folder Structure](#folder-structure)
-* [Project Architecture](#project-architecture) 
+* [Project Architecture](#project-architecture)
     + [Project Diagram](#uml-diagram)
 * [Definition Data Structure](#definition-data-structure)
     + [Definition UML](#definition-uml)
@@ -12,7 +12,7 @@ Section Links:
 
 ## <u>Introduction</u>
 
-Our project is a small collection of retro games. The main three games we've settled on at this point are Hangman, Tic-tac-toe, and Solitaire. One of the major changes to Hangman that we're going to implement a pop-up upon success/failure of the Hangman game, which displays the definition of the word used in that round. This is facilitated with the Merriam-Webster's Colliegate Dictionary API. 
+Our project is a small collection of retro games. The main three games we've settled on at this point are Hangman, Tic-tac-toe, and Solitaire. One of the major changes to Hangman that we're going to implement a pop-up upon success/failure of the Hangman game, which displays the definition of the word used in that round. This is facilitated with the Merriam-Webster's Colliegate Dictionary API.
 
  
 ---
@@ -61,13 +61,13 @@ The basic folder structure for our project is as follows
 └── README.md
 </pre>
 
-Common Dart naming convention suggests, in the lib folder, grouping pages that would be displayed into a seperate screens folder, and any code that does not involve the front end code, is contained in a models folder. 
+Common Dart naming convention suggests, in the lib folder, grouping pages that would be displayed into a seperate screens folder, and any code that does not involve the front end code, is contained in a models folder.
 
 ---
 
 ## <u>Project Architecture</u>
 
-The diagram below demonstrates the main pages will interact with each other. One key thing to note is that the Hangman class references a Defintion class. This is the large JSON response, we get from the Merriam-Webster's API, which we've implemented as various classes, to accomodate the complex JSON that needs to be parsed. A 
+The diagram below demonstrates the main pages will interact with each other. One key thing to note is that the Hangman class references a Defintion class. This is the large JSON response, we get from the Merriam-Webster's API, which we've implemented as various classes, to accomodate the complex JSON that needs to be parsed. A
 
 Otherwise, all pages have links to the other pages included in the project.
 ### <u>UML Diagram:</u>
@@ -86,10 +86,10 @@ According to the documentation provided by the Merriam Webster's Collegiate Dict
 ![Definition_Class](../src/assets/images/Definition_Class.png)
 
 
-For the purposes of this project, we at most will just be using the shortdef field and potentially the et field. Shortdef gives you a short definition of the requested word. Et is short for etymology, and offers some interesting information about the word. 
+For the purposes of this project, we at most will just be using the shortdef field and potentially the et field. Shortdef gives you a short definition of the requested word. Et is short for etymology, and offers some interesting information about the word.
 
 ---
 
 ## <u>Testing</u>
 
-For our tests, we intend to utilize a mix of Mockito for mocking, Cucumber/Gherkin for generating BDD style test cases, and both of these work with the testing framework offered by Flutter, and are optional for the testing being done. 
+For our tests, we intend to utilize a mix of Mockito for mocking, Cucumber/Gherkin for generating BDD style test cases, and both of these work with the testing framework offered by Flutter, and are optional for the testing being done.
