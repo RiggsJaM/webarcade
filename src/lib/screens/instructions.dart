@@ -128,7 +128,11 @@ class GameInstructions extends State<Instructions> {
                     ),
                   ),
                 ),
-                Text("",
+                Text("The goal of blackjack is the get as close to 21 as possible."
+                    "You get 2 cards and can hit or stand depending on what you want."
+                    "Then after you stand the dealer reveals his cards and a winner is declared."
+                    "Hitting gives you a new card and adds to your total. J, Q, and K's "
+                    "are 10 and A's are 11 or 1 depending on if you are over 21 or not.",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
