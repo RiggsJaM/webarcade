@@ -40,9 +40,9 @@ The basic folder structure for our project is as follows
 │    │   │   ├── definition_page.dart
 │    │   │   └── merriam_webster_api.dart
 │    │   └── screens/
+│    │       ├──blackjack.dart
 │    │       ├── definition_page.dart
-│    │       ├── hangman.dart
-│    │       ├── solitaire.dart
+│    │       ├── hangman.dart   
 │    │       ├── tests_page.dart
 │    │       └── tictactoe.dart
 │    └── test/
